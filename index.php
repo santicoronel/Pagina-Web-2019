@@ -48,6 +48,10 @@ $sql = "CREATE TABLE Plato_Guarnicion (
 $conn->query($sql);
 
 
+include 'head_and_logo.html';
+include 'bottom.html';
+
+
 
 $conn->close();
 ?>
