@@ -11,7 +11,9 @@ if ($conn->connect_error) {
 } 
 
 
-$sql = "CREATE DATABASE PaginaWebDB";
+$sql = "CREATE DATABASE PaginaWebDB
+     DEFAULT CHARSET = latin1
+     COLLATE latin1_spanish_ci";
 $conn->query($sql);
 
 $sql = "CREATE TABLE Indice (
