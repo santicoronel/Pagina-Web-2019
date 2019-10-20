@@ -3,6 +3,9 @@ background-image: url("https://img.freepik.com/foto-gratis/tablero-madera-fondo-
 background-repeat: no-repeat;
 background-size:100% 100%;
 color:  #ff6600 ;
+text-shadow:
+0 0 1px black,
+0 0 1px black;
 }
 *{
 	margin:0px;
@@ -16,13 +19,64 @@ div#Flecha-derecha{
 float:right;
 }
 div#Indice{
-
+font-family: Didot, serif;
+padding: 30px;
+padding-bottom: 30px;
+font-size: 32px;
+width: 33%;
+display:flex;
+justify-content:center;
+align-items: center;
+flex-direction: column; 
+}
+div#Indice h2{
+text-align: center;
+}
+div#Indice ul{
+font-size: 24px;
+color: #ff7b00;
+}
+div#Indice ul li{
+list-style: none;
 }
 div#Combos-y-Ofertas{
-
+font-family: Didot, serif;
+padding: 30px;
+padding-bottom: 30px;
+font-size: 32px;
+width: 33%;
+display:flex;
+justify-content:center;
+align-items: center;
+flex-direction: column;
+}
+div#Combos-y-Ofertas ul{
+font-size: 24px;
+color: #ff7b00;
+}
+div#Combos-y-Ofertas ul li{
+list-style: none;
+}
+div#Combos-y-Ofertas h2{
+text-align: center;
 }
 div#Carta{
-
+font-size: 24px;
+color: #ff7b00;
+text-align:center;
+width:33%;
+display:flex;
+justify-content:center;
+align-items: center;
+flex-direction: column;
+}
+div#Carta h2{
+font-size: 60px;
+}
+div#contenedor{
+display:flex;
+justify-content: space-between;
+align-items: center;
 }
 .Flecha{
   filter: drop-shadow(0px 0px 5px #000);
