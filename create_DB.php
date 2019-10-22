@@ -2,19 +2,15 @@
 $servername = "PaginaWeb";
 $username = "root";
 $password = "";
+$db = "poli_seis";
+
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $db);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
-
-$sql = "CREATE DATABASE PaginaWebDB
-     DEFAULT CHARSET = latin1
-     COLLATE latin1_spanish_ci";
-$conn->query($sql);
 
 $sql = "CREATE TABLE Indice (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
