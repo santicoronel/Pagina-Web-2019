@@ -73,7 +73,7 @@ flex-direction: column;
 div#Menu h2{
 font-size: 60px;
 }
-div#contenedor{
+div#Carta{
 display:flex;
 justify-content: space-between;
 align-items: center;
