@@ -1,9 +1,5 @@
 <?php
-$servername = "PaginaWeb";
-$username = "root";
-$password = "";
-$db = "poli_seis";
-
+include './sql_variables.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
@@ -23,8 +19,7 @@ $sql = "CREATE TABLE IF NOT EXISTS Combos_Ofertas (
 	disponibilidad VARCHAR(100),
     descripcion VARCHAR(100),
     precio INT(4) UNSIGNED,
-	disponible BOOLEAN DEFAULT true,
-	id_items INT(4) UNSIGNED DEFAULT 0 )";
+	disponible BOOLEAN DEFAULT true )";
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS Carta (
@@ -32,7 +27,8 @@ $sql = "CREATE TABLE IF NOT EXISTS Carta (
 	plato VARCHAR(100) NOT NULL,
 	precio INT(4) UNSIGNED,
     tipo VARCHAR(100) NOT NULL,
-	disponible BOOLEAN DEFAULT true)";
+    imagen VARCHAR(200),
+	disponible BOOLEAN DEFAULT true )";
 $conn->query($sql);
 
 $conn->close();
