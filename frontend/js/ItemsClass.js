@@ -6,15 +6,25 @@ class MenuItem {
         this.id = id;
         this.type = type;
         this.price = price;
+		this.HTMLElem = textToHTML(HTMLText());
     }
 
+	HTMLText(){ 
+		return '<tr id="' + this.id + '"> <td> <img src="' + this.image_url + '" alt="' + this.name + '"> </td> <td>' + this.name + '</td>';
+ 	}
+	
 }
 class IndiceItem {
 
-    constructor(id, seccion){
+    constructor(id, name){
         this.id = id;
-        this.seccion = seccion;
-    } 
+        this.name = name;
+		this.HTMLELem = textToHTML(HTMLText());
+    }
+	
+	HTMLText(){
+		return '<li id="' + this.id + '">' + this.seccion + '</li>';
+	}
 }
 
 class ComboItem {
@@ -25,6 +35,9 @@ class ComboItem {
         this.id = id;
         this.description = description;
         this.price = price;
+		this.HTMLElem = textToHTML(HTMLText());
     }
+
+	HTMLText(){} //TODO
     
 }
