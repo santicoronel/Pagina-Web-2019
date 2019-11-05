@@ -19,10 +19,10 @@ var pages = {
 var components = {
     flechaIzq: 
     `<div id="Flecha-izquierda" class="Flecha" onclick="turnPage(this.id)">
-        <img src="../../images/left-arrow.svg" width="100" heigth="50" alt="<-">
+        <img src="../../images/left-arrow.svg" width="80" heigth="80" alt="<-">
     </div>`,
     flechaDer:
     `<div id="Flecha-derecha" class="Flecha" onclick="turnPage(this.id)">
-        <img src="../../images/right-arrow.svg" width="100" heigth="50" alt="->">
+        <img src="../../images/right-arrow.svg" width="80" heigth="80" alt="->">
     </div>`,
 };
