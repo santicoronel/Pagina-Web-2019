@@ -22,7 +22,7 @@ $sql = "CREATE TABLE IF NOT EXISTS Combos_Ofertas (
 	disponible BOOLEAN DEFAULT true )";
 $conn->query($sql);
 
-$sql = "CREATE TABLE IF NOT EXISTS Carta (
+$sql = "CREATE TABLE IF NOT EXISTS MENU (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 	plato VARCHAR(100) NOT NULL,
 	precio INT(4) UNSIGNED,

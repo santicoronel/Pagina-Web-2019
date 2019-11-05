@@ -1,10 +1,10 @@
 
-var pedidos = {carta: new Array(), combos: new Array()};
+var pedidos = {menu: new Array(), combos: new Array()};
 var body;
-var page = ['indice', 'carta', 'combos'];
+var page = ['indice', 'menu', 'combos'];
 var pageContent ={
     indice: pages.indice + components.flechaDer,
-    carta: pages.carta + components.flechaIzq + components.flechaDer,
+    menu: pages.menu + components.flechaIzq + components.flechaDer,
     combos: pages.combos + components.flechaIzq,
 };
 var pageState = 0;
@@ -16,7 +16,7 @@ function selectItem (id) {
 function getItems (page){
     elems = document.getElementsByClassName('item_on');
     for(let i = 0; i < elems.length; i++){
-        if(page == 1) pedidos.carta.push(elems.item(i).id);
+        if(page == 1) pedidos.menu.push(elems.item(i).id);
         if(page == 2) pedidos.combos.push(elems.item(i).id);
     }
 }
@@ -45,6 +45,6 @@ function loadBody(){
 
 function renderPage(page){
     if(page == 'indice') renderIndice();
-    if(page == 'carta') renderCarta();
+    if(page == 'menu') renderMenu();
     if(page == 'combos') renderCombos();
 }

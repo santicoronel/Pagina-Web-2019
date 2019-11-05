@@ -2,7 +2,7 @@
 function fetch(page){
     let xmlreq = new XMLHttpRequest();   
     if(page == 'indice') xmlreq.onreadystatechange = indice;
-    if(page == 'carta') xmlreq.onreadystatechange = carta;
+    if(page == 'menu') xmlreq.onreadystatechange = menu;
     if(page == 'combos') xmlreq.onreadystatechange = combos;
     xmlreq.open('GET', 'fetch.php', true);
     xmlreq.send();
@@ -21,7 +21,7 @@ function indice(){
     }
 }
 
-function carta(){
+function menu(){
     if(this.readyState == 4 && this.status == 200){
         let res = JSON.parse(this.responseText);
         let data = res.filter(obj => obj.disponible);

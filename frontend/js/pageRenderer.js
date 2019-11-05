@@ -1,15 +1,15 @@
 function renderIndice() {
-    document.getElementById('Menu').innerHTML = pageContent.indice;
+    document.getElementById('Carta').innerHTML = pageContent.indice;
     //add items//
-    pageContent.indice = document.getElementById('Menu').innerHTML;
+    pageContent.indice = document.getElementById('Carta').innerHTML;
 }
-function renderCarta() {
-    document.getElementById('Menu').innerHTML = pageContent.carta;
+function renderMenu() {
+    document.getElementById('Carta').innerHTML = pageContent.menu;
     //add items//
-    pageContent.carta = document.getElementById('Menu').innerHTML;
+    pageContent.menu = document.getElementById('Carta').innerHTML;
 }
 function renderCombos() {
-    document.getElementById('Menu').innerHTML = pageContent.combos;
+    document.getElementById('Carta').innerHTML = pageContent.combos;
     //add items//
-    pageContent.combos = document.getElementById('Menu').innerHTML;
+    pageContent.combos = document.getElementById('Carta').innerHTML;
 }

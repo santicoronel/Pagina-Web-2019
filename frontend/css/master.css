@@ -60,7 +60,7 @@ list-style: none;
 div#Combos-y-Ofertas h2{
 text-align: center;
 }
-div#Carta{
+div#Menu{
 font-size: 24px;
 color: #ff7b00;
 text-align:center;
@@ -70,7 +70,7 @@ justify-content:center;
 align-items: center;
 flex-direction: column;
 }
-div#Carta h2{
+div#Menu h2{
 font-size: 60px;
 }
 div#contenedor{

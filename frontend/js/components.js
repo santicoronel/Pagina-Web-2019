@@ -4,8 +4,8 @@ var pages = {
         <h2> Indice </h2> 
         <ul> </ul> 
     </div>`,
-    carta: 
-    `<div id="Carta" class="Carta"> 
+    menu: 
+    `<div id="Menu" class="Menu"> 
         <table> 
             <tr> <th colspan="2"> <h2>Menú</h2> </th> </tr> 
         </table> 
