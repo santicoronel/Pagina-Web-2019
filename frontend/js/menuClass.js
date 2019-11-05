@@ -14,3 +14,23 @@ class MenuItem {
  	}
 	
 }
+
+class MenuPage {
+    
+    constructor(){
+        this.pageContent = this.HTMLtemplate;
+    }
+    
+    HTMLtemplate =
+    `<div id="Menu" class="Menu"> 
+        <table> 
+            <tr> <th colspan="2"> <h2>Menú</h2> </th> </tr> 
+        </table> 
+    </div>`;
+    
+    renderMenu() {
+        document.getElementById('Carta').innerHTML = this.pageContent;
+        //add items//
+        pageContent.menu = document.getElementById('Carta').innerHTML;
+    }
+}
