@@ -19,10 +19,10 @@ var pages = {
 var components = {
     flechaIzq: 
     `<div id="Flecha-izquierda" class="Flecha" onclick="turnPage(this.id)">
-        <img src="https://images.emojiterra.com/google/android-nougat/512px/2b05.png" width="100" heigth="50" alt="<-">
+        <img src="../../images/left-arrow.svg" width="100" heigth="50" alt="<-">
     </div>`,
     flechaDer:
     `<div id="Flecha-derecha" class="Flecha" onclick="turnPage(this.id)">
-        <img src="https://images.emojiterra.com/google/android-nougat/512px/27a1.png" width="100" heigth="50" alt="->">
+        <img src="../../images/right-arrow.svg" width="100" heigth="50" alt="->">
     </div>`,
 };
