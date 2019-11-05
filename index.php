@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <?php
-include 'head_and_logo.html';
-include 'body.html';
+include 'index.html';
 ?>
 </html>
