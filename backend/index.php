@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
 <?php
-include 'index.html';
+include '../frontend/html/index.html';
 ?>
 </html>
