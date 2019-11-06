@@ -1,4 +1,4 @@
-import { fetcher } from "./ajax";
+import { Ajax } from "./ajax";
 import { textToHTML } from "./utils";
 
 export class IndiceItem {
@@ -38,7 +38,7 @@ export class IndicePage{
             let data = res;
 
             let items = new Array();
-            for(let d in data){
+            for(let d of data){
                 let item = new IndiceItem(d.id, d.seccion);
                 items.push(item);
             }

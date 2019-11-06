@@ -40,7 +40,7 @@ export class CombosPage {
             let data = res.filter(obj => obj.disponible);
 
             let items = new Array();
-            for(let d in data){
+            for(let d of data){
                 let item = new ComboItem(d.oferta, d.id, d.disponibilidad, d.precio, d.descripcion);
                 items.push(item);
             }

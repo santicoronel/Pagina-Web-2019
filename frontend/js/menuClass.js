@@ -47,7 +47,7 @@ export class MenuPage {
             let data = res.filter(obj => obj.disponible);
 
             let items = new Array();
-            for(let d in data){
+            for(let d of data){
                 let item = new MenuItem(d.plato, d.imagen, d.id, d.seccion, d.precio);
                 items.push(item);
             }
