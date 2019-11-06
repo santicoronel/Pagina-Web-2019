@@ -1,3 +1,6 @@
+import { fetcher } from "./ajax";
+import { textToHTML } from "./utils";
+
 export class IndiceItem {
 
     constructor(id, name){
@@ -15,6 +18,7 @@ export class IndicePage{
     
     constructor(){
         this.pageContent = this.HTMLtemplate;
+        setInterval(this.updateContent, 10000);
     }
     
     HTMLtemplate = 
@@ -23,9 +27,27 @@ export class IndicePage{
         <ul> </ul> 
     </div>`;
     
-    renderIndice() {
+    render() {
         document.getElementById('Carta').innerHTML = this.pageContent;
         //add items//
         pageContent.indice = document.getElementById('Carta').innerHTML;
+    }
+
+    fetch(res){
+        let data = res;
+        let items = new Array();
+        for(let d in data){
+            let item = new IndiceItem(d.id, d.seccion);
+            items.push(item);
+        }
+        return items;
+    }
+
+    fetcher(){
+        return fetcher(this.fetch);
+    }
+
+    updateContent(){
+        let items = this.fetcher();
     }
 }

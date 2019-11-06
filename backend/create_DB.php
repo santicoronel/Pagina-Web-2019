@@ -26,7 +26,7 @@ $sql = "CREATE TABLE IF NOT EXISTS MENU (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 	plato VARCHAR(100) NOT NULL,
 	precio INT(4) UNSIGNED,
-    tipo VARCHAR(100) NOT NULL,
+    seccion VARCHAR(100) NOT NULL,
     imagen VARCHAR(200),
 	disponible BOOLEAN DEFAULT true )";
 $conn->query($sql);

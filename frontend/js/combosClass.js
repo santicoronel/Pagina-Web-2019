@@ -1,3 +1,6 @@
+import { fetcher } from "./ajax";
+import { textToHTML } from "./utils";
+
 export class ComboItem {
 
     constructor(name, id, available, price, description){
@@ -13,10 +16,11 @@ export class ComboItem {
     
 }
 
-export class ComboPage {
+export class CombosPage {
     
     constructor(){
         this.pageContent = this.HTMLtemplate;
+        setInterval(this.updateContent, 10000);
     }
     
     HTMLtemplate = 
@@ -25,9 +29,21 @@ export class ComboPage {
         <ul></ul> 
     </div>`;
     
-    renderCombos() {
+    render() {
         document.getElementById('Carta').innerHTML = this.pageContent;
         //add items//
         pageContent.combos = document.getElementById('Carta').innerHTML;
     }
+
+    fetch(res){
+        let data = res.filter(obj => obj.disponible);
+        let items = new Array();
+        for(let d in data){
+            let item = new ComboItem(d.oferta, d.id, d.disponibilidad, d.precio, d.descripcion);
+            items.push(item);
+        }
+        return items;
+    }
+
+    updateContent(){}
 }

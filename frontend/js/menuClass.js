@@ -1,10 +1,13 @@
-class MenuItem {
+import { fetcher } from "./ajax";
+import { textToHTML } from "./utils";
 
-    constructor(name, image_url, id, type, price){
+export class MenuItem {
+
+    constructor(name, image_url, id, section, price){
         this.name = name;
         this.image_url = image_url;
         this.id = id;
-        this.type = type;
+        this.section = section;
         this.price = price;
 		this.HTMLElem = textToHTML(HTMLText());
     }
@@ -15,10 +18,11 @@ class MenuItem {
 	
 }
 
-class MenuPage {
+export class MenuPage {
     
     constructor(){
         this.pageContent = this.HTMLtemplate;
+        setInterval(this.updateContent, 10000);
     }
     
     HTMLtemplate =
@@ -28,9 +32,21 @@ class MenuPage {
         </table> 
     </div>`;
     
-    renderMenu() {
+    render() {
         document.getElementById('Carta').innerHTML = this.pageContent;
         //add items//
         pageContent.menu = document.getElementById('Carta').innerHTML;
     }
+
+    fetch(res){
+        let data = res.filter(obj => obj.disponible);
+        let items = new Array();
+        for(let d in data){
+            let item = new MenuItem(d.plato, d.imagen, d.id, d.seccion, d.precio);
+            items.push(item);
+        }
+        return items;
+    }
+
+    updateContent(){}
 }
