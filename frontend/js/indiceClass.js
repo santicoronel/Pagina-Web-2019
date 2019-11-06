@@ -16,25 +16,19 @@ export class IndiceItem {
 
 export class IndicePage{
     
-    constructor(){
-        this.pageContent = this.HTMLtemplate;
-        setInterval(this.updateContent, 10000);
-    }
-    
+    itemSet = new Map();
     HTMLtemplate = 
     `<div id="Indice" class="Indice">
         <h2> Indice </h2> 
         <ul id="Tabla"> </ul> 
     </div>`;
     
-    render() {
-        document.getElementById('Carta').innerHTML = this.pageContent;
-        //add items//
-        pageContent.indice = document.getElementById('Carta').innerHTML;
+    constructor(){
+        this.pageContent = this.HTMLtemplate;
     }
-
-    fetcher(){
-        return Ajax.fetcher(res => {
+    
+    fetchItems(){
+        let items = Ajax.fetcher(res => {
             let data = res;
 
             let items = new Array();
@@ -44,9 +38,26 @@ export class IndicePage{
             }
             return items;
         });
+        for(item of items) this.itemSet.set(item.id, item);
     }
 
-    updateContent(){
-        let items = this.fetcher();
+    renderItem(item, container) {
+       container.appendChild(item.HTMLELem);
+    }
+
+    renderPage(){
+        
+        let Carta = document.getElementById('Carta');
+        Carta.innerHTML = this.pageContent;
+
+        if(!this.itemSet.size){
+            this.fetchItems();
+            let container = document.getElementById('Tabla');
+            this.itemSet.forEach( 
+                val => {
+                    this.renderItem(val, container);
+                });
+            this.pageContent = Carta.innerHTML;
+        }
     }
 }
