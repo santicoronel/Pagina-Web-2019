@@ -10,7 +10,7 @@ export class IndiceItem {
     }
 	
 	HTMLText(){
-		return '<li id="' + this.id + '">' + this.seccion + '</li>';
+		return `<li id="${this.id}"> ${this.name} </li>`;
 	}
 }
 

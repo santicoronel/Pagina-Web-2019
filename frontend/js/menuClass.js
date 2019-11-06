@@ -13,7 +13,11 @@ export class MenuItem {
     }
 
 	HTMLText(){ 
-		return '<tr id="' + this.id + '"> <td> <img src="' + this.image_url + '" alt="' + this.name + '"> </td> <td>' + this.name + '</td>';
+        return 
+            `<tr id="${this.id}">
+                <td> <img src="${this.image_url}"> </td>
+                <td> ${this.name} </td>
+            </tr>`;
  	}
 	
 }
