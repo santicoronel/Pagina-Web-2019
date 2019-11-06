@@ -1,4 +1,4 @@
-import { fetcher } from "./ajax";
+import { Ajax } from "./ajax";
 import { textToHTML } from "./utils";
 
 export class ComboItem {
@@ -35,15 +35,21 @@ export class CombosPage {
         pageContent.combos = document.getElementById('Carta').innerHTML;
     }
 
-    fetch(res){
-        let data = res.filter(obj => obj.disponible);
-        let items = new Array();
-        for(let d in data){
-            let item = new ComboItem(d.oferta, d.id, d.disponibilidad, d.precio, d.descripcion);
-            items.push(item);
-        }
-        return items;
-    }
+    fetcher(){
+        return Ajax.fetcher(res => {
+            let data = res.filter(obj => obj.disponible);
 
-    updateContent(){}
+            let items = new Array();
+            for(let d in data){
+                let item = new ComboItem(d.oferta, d.id, d.disponibilidad, d.precio, d.descripcion);
+                items.push(item);
+            }
+            return items;
+        })
+    }
+    
+    updateContent(){
+        let items = this.fetcher();
+        
+    }
 }

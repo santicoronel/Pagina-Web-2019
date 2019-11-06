@@ -1,4 +1,4 @@
-import { fetcher } from "./ajax";
+import { Ajax } from "./ajax";
 import { textToHTML } from "./utils";
 
 export class MenuItem {
@@ -37,16 +37,19 @@ export class MenuPage {
         //add items//
         pageContent.menu = document.getElementById('Carta').innerHTML;
     }
+    
+    fetcher(){
+        return Ajax.fetcher(res => {
+            let data = res.filter(obj => obj.disponible);
 
-    fetch(res){
-        let data = res.filter(obj => obj.disponible);
-        let items = new Array();
-        for(let d in data){
-            let item = new MenuItem(d.plato, d.imagen, d.id, d.seccion, d.precio);
-            items.push(item);
-        }
-        return items;
+            let items = new Array();
+            for(let d in data){
+                let item = new MenuItem(d.plato, d.imagen, d.id, d.seccion, d.precio);
+                items.push(item);
+            }
+            return items;
+        })
     }
-
+    
     updateContent(){}
 }

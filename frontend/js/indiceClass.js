@@ -33,18 +33,17 @@ export class IndicePage{
         pageContent.indice = document.getElementById('Carta').innerHTML;
     }
 
-    fetch(res){
-        let data = res;
-        let items = new Array();
-        for(let d in data){
-            let item = new IndiceItem(d.id, d.seccion);
-            items.push(item);
-        }
-        return items;
-    }
-
     fetcher(){
-        return fetcher(this.fetch);
+        return Ajax.fetcher(res => {
+            let data = res;
+
+            let items = new Array();
+            for(let d in data){
+                let item = new IndiceItem(d.id, d.seccion);
+                items.push(item);
+            }
+            return items;
+        });
     }
 
     updateContent(){
