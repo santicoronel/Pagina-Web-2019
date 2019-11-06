@@ -24,7 +24,7 @@ export class IndicePage{
     HTMLtemplate = 
     `<div id="Indice" class="Indice">
         <h2> Indice </h2> 
-        <ul> </ul> 
+        <ul id="Tabla"> </ul> 
     </div>`;
     
     render() {

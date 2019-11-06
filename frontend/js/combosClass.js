@@ -26,7 +26,7 @@ export class CombosPage {
     HTMLtemplate = 
     `<div id="Combos-y-Ofertas" class="Combos-y-Ofertas">
         <h2> Combos y Ofertas </h2> 
-        <ul></ul> 
+        <ul id="Tabla"></ul> 
     </div>`;
     
     render() {

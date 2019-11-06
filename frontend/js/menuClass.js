@@ -13,11 +13,11 @@ export class MenuItem {
     }
 
 	HTMLText(){ 
-        return 
-            `<tr id="${this.id}">
-                <td> <img src="${this.image_url}"> </td>
-                <td> ${this.name} </td>
-            </tr>`;
+        return `<tr id="${this.id}">
+                    <td> <img src="${this.image_url}"> </td>
+                    <td> ${this.name} </td>
+                </tr>`; 
+            
  	}
 	
 }
@@ -31,7 +31,7 @@ export class MenuPage {
     
     HTMLtemplate =
     `<div id="Menu" class="Menu"> 
-        <table> 
+        <table id="Tabla"> 
             <tr> <th colspan="2"> <h2>Menú</h2> </th> </tr> 
         </table> 
     </div>`;
