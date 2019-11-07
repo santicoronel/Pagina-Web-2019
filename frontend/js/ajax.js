@@ -1,7 +1,7 @@
 
 export class Ajax {
     
-    static fetcher(succes){
+    static fetcher(fetcherPath, succes){
         let xmlreq = new XMLHttpRequest();   
         xmlreq.onreadystatechange = _ => {
             if(this.readyState == 4 && this.status == 200){
@@ -9,7 +9,7 @@ export class Ajax {
                 succes(data);
             }
         }
-        xmlreq.open('GET', 'fetch.php', true);
+        xmlreq.open('GET', fetcherPath, true);
         xmlreq.send();
     }
 }
