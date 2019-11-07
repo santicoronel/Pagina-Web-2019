@@ -25,7 +25,7 @@ export class MenuItem {
 export class MenuPage {
     
     fetcherPath = '../../backend/fetchMenu.php';
-    itemSet = new Map();
+    itemSet = new Map;
     HTMLtemplate =
     `<div id="Menu" class="Menu"> 
         <table id="Tabla"> 
@@ -42,7 +42,7 @@ export class MenuPage {
             res => {
                 let data = res.filter(obj => obj.disponible);
                 
-                let items = new Array();
+                let items = new Array;
                 for(let d of data){
                     let item = new MenuItem(d.plato, d.imagen, d.id, d.seccion, d.precio);
                     items.push(item);

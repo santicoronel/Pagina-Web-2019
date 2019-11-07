@@ -20,7 +20,7 @@ export class ComboItem {
 export class CombosPage {
     
     fetcherPath = '../../backend/fetchCombos.php';
-    itemSet = new Map();
+    itemSet = new Map;
     HTMLtemplate = 
     `<div id="Combos-y-Ofertas" class="Combos-y-Ofertas">
         <h2> Combos y Ofertas </h2> 
@@ -36,7 +36,7 @@ export class CombosPage {
             res => {
                 let data = res.filter(obj => obj.disponible);
                 
-                let items = new Array();
+                let items = new Array;
                 for(let d of data){
                     let item = new ComboItem(d.oferta, d.id, d.disponibilidad, d.precio, d.descripcion);
                     items.push(item);

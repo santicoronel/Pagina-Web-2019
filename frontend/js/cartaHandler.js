@@ -1,7 +1,10 @@
+import {IndiceItem, IndicePage} from './indiceClass'
+import {MenuItem, MenuPage} from './menuClass'
+import {ComboItem, CombosPage} from './combosClass'
 
-var pedidos = {menu: new Array(), combos: new Array()};
+var pedidos = {menu: new Array, combos: new Array};
 var body;
-var page = ['indice', 'menu', 'combos'];
+var page = [new IndicePage, new MenuPage, new CombosPage];
 var pageContent ={
     indice: pages.indice + components.flechaDer,
     menu: pages.menu + components.flechaIzq + components.flechaDer,
@@ -41,10 +44,4 @@ function buildPedido(){
 
 function loadBody(){
     document.body.innerHTML = body;
-}
-
-function renderPage(page){
-    if(page == 'indice') renderIndice();
-    if(page == 'menu') renderMenu();
-    if(page == 'combos') renderCombos();
 }

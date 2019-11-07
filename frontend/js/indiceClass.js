@@ -17,7 +17,7 @@ export class IndiceItem {
 export class IndicePage{
 
     fetcherPath = '../../backend/fetchIndice.php';
-    itemSet = new Map();
+    itemSet = new Map;
     HTMLtemplate = 
     `<div id="Indice" class="Indice">
         <h2> Indice </h2> 
@@ -33,7 +33,7 @@ export class IndicePage{
             res => {
                 let data = res;
 
-                let items = new Array();
+                let items = new Array;
                 for(let d of data){
                     let item = new IndiceItem(d.id, d.seccion);
                     items.push(item);
