@@ -14,7 +14,7 @@ var pageState = 0;
 
 function selectItem (id) {
     document.getElementById(id).classList.toggle('item_on');
-}
+} window.selectItem = selectItem;
 
 function getItems (page){
     elems = document.getElementsByClassName('item_on');
@@ -35,13 +35,13 @@ function turnPage(id){
         pageState++;
     }
     renderPage(page[pageState]);
-}
+} window.turnPage = turnPage;
 
 function buildPedido(){
     body = document.body.innerHTML;
     document.body.innerHTML = '<h1 onclick="loadBody()"> click to go back </h1>';
-}
+} window.buildPedido = buildPedido;
 
 function loadBody(){
     document.body.innerHTML = body;
-}
+} window.loadBody = loadBody;
