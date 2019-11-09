@@ -15,7 +15,7 @@ function loadPage(){
 
 function selectItem (id) {
     document.getElementById(id).classList.toggle('item_on');
-    pages[pageState].pageContent = document.getElementById('Carta').innerHTML;
+    pages[pageState].refreshContent();
 } window.selectItem = selectItem;
 
 function getItems (){

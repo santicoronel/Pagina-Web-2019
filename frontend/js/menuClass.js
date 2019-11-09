@@ -60,6 +60,10 @@ export class MenuPage {
         container.appendChild(item.HTMLElem);
     }
 
+    refreshContent(){
+        this.pageContent = document.getElementById('Carta').innerHTML;
+    }
+
     updateContent(){
 
         this.fetchItems(_ => {
@@ -69,7 +73,7 @@ export class MenuPage {
                     this.renderItem(val, container);
                 }
             )
-            this.pageContent = document.getElementById('Carta').innerHTML;
+            this.refreshContent();
         });  
     }
 
