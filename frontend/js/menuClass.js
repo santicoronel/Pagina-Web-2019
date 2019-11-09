@@ -1,5 +1,6 @@
 import { Ajax } from "./ajax";
 import { textToHTML, components } from "./utils";
+import {PedidoItem} from './pedidoClass';
 
 export class MenuItem {
 
@@ -26,7 +27,8 @@ export class MenuPage {
     
     fetcherPath = 'backend/fetchMenu.php';
     itemSet = new Map;
-    HTMLtemplate =
+    itemSelected = new Array;
+    HTMLTemplate =
     `<div id="Menu" class="Menu"> 
         <table id="Tabla"> 
             <tr> <th colspan="2"> <h2>Menú</h2> </th> </tr> 
@@ -34,7 +36,7 @@ export class MenuPage {
     </div>`;
     
     constructor(){
-        this.pageContent = this.HTMLtemplate + components.flechaIzq + components.flechaDer;
+        this.pageContent = this.HTMLTemplate + components.flechaIzq + components.flechaDer;
     }
     
     fetchItems(callback){
@@ -73,6 +75,26 @@ export class MenuPage {
 
     renderPage(){
         document.getElementById('Carta').innerHTML = this.pageContent;
+        this.itemSelected = new Array;
         if(!this.itemSet.size) this.updateContent();
+    }
+
+    get Pedidos(){
+        let pedidosCount = new Map;
+        let pedidos = new Map;
+        for(id of this.itemSelected){
+            if(pedidosCount.has(id)) pedidosCount.set(id, pedidosCount.get(id) + 1);
+            else pedidosCount.set(id, 1);
+        }
+        pedidosCount.forEach(
+            (val, id) => {
+                let item = this.makePedido(this.itemSet.get(id), val)
+                pedidos.set(id, item);
+        });
+        return pedidos;
+    }
+
+    makePedido(item, cant){
+        return new PedidoItem(item.id, item.name, item.price, cant);
     }
 }
