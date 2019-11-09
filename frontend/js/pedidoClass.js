@@ -16,7 +16,7 @@ export class PedidoItem {
 
 export class PedidoPage {
 
-    itemSet = new Map;
+    itemSet = new Array;
     HTMLTemplate = ``; //TODO
 
     renderItem(item, container){
@@ -27,7 +27,7 @@ export class PedidoPage {
         let precioTotal = 0;
         let container = document.getElementById('Tabla');
 
-        for(item of this.itemSet) {
+        for(let item of this.itemSet) {
             this.renderItem(item, container);
             precioTotal += item.price;
         }

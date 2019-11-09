@@ -42,6 +42,7 @@ function buildPedido(){
     if(pageState != 0) getItems();
     pedidosPage.itemSet = pages[1].Pedidos.concat(pages[2].Pedidos);
     console.log(pedidosPage.itemSet);
+    pedidosPage.renderPage();
 
     body = document.body.innerHTML;
     document.body.innerHTML = '<h1 onclick="loadBody()"> click to go back </h1>';
