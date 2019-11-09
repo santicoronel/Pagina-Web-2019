@@ -1,6 +1,6 @@
 import { Ajax } from "./ajax";
 import { textToHTML, components } from "./utils";
-import {PedidoItem} from './pedidoClass';
+import { PedidoItem } from './pedidoClass';
 
 export class MenuItem {
 
@@ -50,7 +50,7 @@ export class MenuPage {
                     let item = new MenuItem(d.plato, d.imagen, d.id, d.seccion, d.precio);
                     items.push(item);
                 }
-                for(item of items) this.itemSet.set(item.id, item);
+                for(let item of items) this.itemSet.set(item.id, item);
                 callback();
             });
 

@@ -34,6 +34,4 @@ export class PedidoPage {
         document.getElementById('Precio').innerHTML = precioTotal;
     }
 
-
-
 }

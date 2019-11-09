@@ -1,6 +1,6 @@
 import { Ajax } from "./ajax";
 import { textToHTML, components } from "./utils";
-import {PedidoItem} from './pedidoClass';
+import { PedidoItem } from './pedidoClass';
 
 export class ComboItem {
 
@@ -43,7 +43,7 @@ export class CombosPage {
                     let item = new ComboItem(d.oferta, d.id, d.disponibilidad, d.precio, d.descripcion);
                     items.push(item);
                 }
-                for(item of items) this.itemSet.set(item.id, item);
+                for(let item of items) this.itemSet.set(item.id, item);
                 callback();
             });
 

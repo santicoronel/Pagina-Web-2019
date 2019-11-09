@@ -38,7 +38,7 @@ export class IndicePage{
                     let item = new IndiceItem(d.id, d.seccion);
                     items.push(item);
                 }
-                for(item of items) this.itemSet.set(item.id, item);
+                for(let item of items) this.itemSet.set(item.id, item);
                 callback();
             });
 
