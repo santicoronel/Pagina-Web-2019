@@ -1,5 +1,5 @@
 import { Ajax } from "./ajax";
-import { textToHTML } from "./utils";
+import { textToHTML, components } from "./utils";
 
 export class MenuItem {
 
@@ -9,7 +9,7 @@ export class MenuItem {
         this.id = id;
         this.section = section;
         this.price = price;
-		this.HTMLElem = textToHTML(HTMLText());
+		this.HTMLElem = textToHTML(this.HTMLText());
     }
 
 	HTMLText(){ 
@@ -24,7 +24,7 @@ export class MenuItem {
 
 export class MenuPage {
     
-    fetcherPath = '../../backend/fetchMenu.php';
+    fetcherPath = 'backend/fetchMenu.php';
     itemSet = new Map;
     HTMLtemplate =
     `<div id="Menu" class="Menu"> 
@@ -34,12 +34,13 @@ export class MenuPage {
     </div>`;
     
     constructor(){
-        this.pageContent = this.HTMLtemplate;
+        this.pageContent = this.HTMLtemplate + components.flechaIzq + components.flechaDer;
     }
     
-    fetchItems(){
-        let items =  this.ajax.fetcher(this.fetcherPath, 
+    fetchItems(callback){
+        Ajax.fetcher(this.fetcherPath, 
             res => {
+                
                 let data = res.filter(obj => obj.disponible);
                 
                 let items = new Array;
@@ -47,29 +48,31 @@ export class MenuPage {
                     let item = new MenuItem(d.plato, d.imagen, d.id, d.seccion, d.precio);
                     items.push(item);
                 }
-                return items;
+                for(item of items) this.itemSet.set(item.id, item);
+                callback();
             });
 
-        for(item of items) this.itemSet.set(item.id, item);
     }
     
     renderItem(item, container) {
         container.appendChild(item.HTMLElem);
     }
 
-    renderPage(){
-        let Carta = document.getElementById('Carta');
-        Carta.innerHTML = this.pageContent;
+    updateContent(){
 
-        if(!this.itemSet.size){
-            this.fetchItems();
+        this.fetchItems(_ => {
             let container = document.getElementById('Tabla');
             this.itemSet.forEach(
                 val => {
                     this.renderItem(val, container);
                 }
             )
-            this.pageContent = Carta.innerHTML;
-        }
+            this.pageContent = document.getElementById('Carta').innerHTML;
+        });  
+    }
+
+    renderPage(){
+        document.getElementById('Carta').innerHTML = this.pageContent;
+        if(!this.itemSet.size) this.updateContent();
     }
 }

@@ -1,12 +1,12 @@
 import { Ajax } from "./ajax";
-import { textToHTML } from "./utils";
+import { textToHTML, components } from "./utils";
 
 export class IndiceItem {
 
     constructor(id, name){
         this.id = id;
         this.name = name;
-		this.HTMLELem = textToHTML(HTMLText());
+		this.HTMLELem = textToHTML(this.HTMLText());
     }
 	
 	HTMLText(){
@@ -16,7 +16,7 @@ export class IndiceItem {
 
 export class IndicePage{
 
-    fetcherPath = '../../backend/fetchIndice.php';
+    fetcherPath = 'backend/fetchIndice.php';
     itemSet = new Map;
     HTMLtemplate = 
     `<div id="Indice" class="Indice">
@@ -25,11 +25,11 @@ export class IndicePage{
     </div>`;
     
     constructor(){
-        this.pageContent = this.HTMLtemplate;
+        this.pageContent = this.HTMLtemplate + components.flechaDer;
     }
     
-    fetchItems(){
-        let items = this.ajax.fetcher(this.fetcherPath, 
+    fetchItems(callback){
+        Ajax.fetcher(this.fetcherPath, 
             res => {
                 let data = res;
 
@@ -38,29 +38,30 @@ export class IndicePage{
                     let item = new IndiceItem(d.id, d.seccion);
                     items.push(item);
                 }
-                return items;
+                for(item of items) this.itemSet.set(item.id, item);
+                callback();
             });
 
-        for(item of items) this.itemSet.set(item.id, item);
     }
 
     renderItem(item, container) {
        container.appendChild(item.HTMLELem);
     }
 
-    renderPage(){
+    updateContent(){
         
-        let Carta = document.getElementById('Carta');
-        Carta.innerHTML = this.pageContent;
+            this.fetchItems(_ => {
+                let container = document.getElementById('Tabla');
+                this.itemSet.forEach( 
+                    val => {
+                        this.renderItem(val, container);
+                    });
+                this.pageContent = document.getElementById('Carta').innerHTML;
+            });
+    }
 
-        if(!this.itemSet.size){
-            this.fetchItems();
-            let container = document.getElementById('Tabla');
-            this.itemSet.forEach( 
-                val => {
-                    this.renderItem(val, container);
-                });
-            this.pageContent = Carta.innerHTML;
-        }
+    renderPage(){
+        document.getElementById('Carta').innerHTML = this.pageContent;
+        if(!this.itemSet.size) this.updateContent();
     }
 }

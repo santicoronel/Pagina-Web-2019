@@ -1,40 +1,45 @@
-import {IndiceItem, IndicePage} from './indiceClass'
-import {MenuItem, MenuPage} from './menuClass'
-import {ComboItem, CombosPage} from './combosClass'
+import { IndicePage } from './indiceClass'
+import { MenuPage } from './menuClass'
+import { CombosPage } from './combosClass'
+
+var body;
 
 var pedidos = {menu: new Array, combos: new Array};
-var body;
 var page = [new IndicePage, new MenuPage, new CombosPage];
-var pageContent ={
-    indice: pages.indice + components.flechaDer,
-    menu: pages.menu + components.flechaIzq + components.flechaDer,
-    combos: pages.combos + components.flechaIzq,
-};
 var pageState = 0;
+
+function loadPage(){  
+    page[0].renderPage();
+} window.loadPage = loadPage;
 
 function selectItem (id) {
     document.getElementById(id).classList.toggle('item_on');
 } window.selectItem = selectItem;
 
 function getItems (page){
-    elems = document.getElementsByClassName('item_on');
-    for(let i = 0; i < elems.length; i++){
-        if(page == 1) pedidos.menu.push(elems.item(i).id);
-        if(page == 2) pedidos.combos.push(elems.item(i).id);
+    let elems = document.getElementsByClassName('item_on')
+    let opciones = {
+        1: pedidos.menu,
+        2: pedidos.combos
+    }
+    for(let elem of elems){
+        opciones[page].push(elem.id);
     }
 }
 
 function turnPage(id){
-    pageContent[pageState] = document;
-    if (id == 'Flecha-izquierda') {
-        getItems(pageState);
-        pageState--;
+
+    switch(id){
+        case 'Flecha-izquierda':
+            getItems(pageState);
+            pageState--;
+            break;
+        case 'Flecha-derecha':
+            if(pageState == 1) getItems(pageState);
+            pageState++;
+            break;
     }
-    else { 
-        if(pageState == 1) getItems(pageState);
-        pageState++;
-    }
-    renderPage(page[pageState]);
+    page[pageState].renderPage();
 } window.turnPage = turnPage;
 
 function buildPedido(){

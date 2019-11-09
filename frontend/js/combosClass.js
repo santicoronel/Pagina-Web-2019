@@ -1,5 +1,5 @@
 import { Ajax } from "./ajax";
-import { textToHTML } from "./utils";
+import { textToHTML, components } from "./utils";
 
 export class ComboItem {
 
@@ -9,7 +9,7 @@ export class ComboItem {
         this.id = id;
         this.description = description;
         this.price = price;
-		this.HTMLElem = textToHTML(HTMLText());
+		this.HTMLElem = textToHTML(this.HTMLText());
     }
 
 	HTMLText(){} //TODO
@@ -19,7 +19,7 @@ export class ComboItem {
 
 export class CombosPage {
     
-    fetcherPath = '../../backend/fetchCombos.php';
+    fetcherPath = 'backend/fetchCombos.php';
     itemSet = new Map;
     HTMLtemplate = 
     `<div id="Combos-y-Ofertas" class="Combos-y-Ofertas">
@@ -28,11 +28,11 @@ export class CombosPage {
     </div>`;
 
     constructor(){
-        this.pageContent = this.HTMLtemplate;
+        this.pageContent = this.HTMLtemplate + components.flechaIzq;
     }
     
-    fetchItems(){
-        let items  =  this.ajax.fetcher(this.fetcherPath, 
+    fetchItems(callback){
+        let items  =  Ajax.fetcher(this.fetcherPath, 
             res => {
                 let data = res.filter(obj => obj.disponible);
                 
@@ -41,30 +41,31 @@ export class CombosPage {
                     let item = new ComboItem(d.oferta, d.id, d.disponibilidad, d.precio, d.descripcion);
                     items.push(item);
                 }
-                return items;
+                for(item of items) this.itemSet.set(item.id, item);
+                callback();
             });
 
-        for(item of items) this.itemSet.set(item.id, item);
     }
     
     renderItem(item, container) {
         container.appendChild(item.HTMLElem);
     }
 
-    renderPage(){
-        let Carta = document.getElementById('Carta');
-        Carta.innerHTML = this.pageContent;
+    updateContent(){
+    
+            this.fetchItems(_ => {
+                let container = document.getElementById('Tabla');
+                this.itemSet.forEach(
+                    val => {
+                        this.renderItem(val,container);
+                    }
+                )
+                this.pageContent = document.getElementById('Carta').innerHTML;
+            });
+    }
 
-        if(!this.itemSet.size){
-            this.fetchItems();
-            let container = document.getElementById('Tabla');
-            this.itemSet.forEach(
-                val => {
-                    this.renderItem(val,container);
-                }
-            )
-            this.pageContent = Carta.innerHTML;
-        }
-        
+    renderPage(){
+        document.getElementById('Carta').innerHTML = this.pageContent;
+        if(!this.itemSet.size) this.updateContent();
     }
 }
