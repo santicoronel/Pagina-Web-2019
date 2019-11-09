@@ -1,10 +1,12 @@
 import { IndicePage } from './indiceClass'
 import { MenuPage } from './menuClass'
 import { CombosPage } from './combosClass'
+import { PedidoPage } from './pedidoClass'
 
 var body;
 
 var page = [new IndicePage, new MenuPage, new CombosPage];
+var pedidosPage = new PedidoPage;
 var pageState = 0;
 
 function loadPage(){  
@@ -26,11 +28,11 @@ function turnPage(id){
 
     switch(id){
         case 'Flecha-izquierda':
-            getItems(pageState);
+            getItems();
             pageState--;
             break;
         case 'Flecha-derecha':
-            if(pageState == 1) getItems(pageState);
+            if(pageState == 1) getItems();
             pageState++;
             break;
     }
@@ -38,10 +40,12 @@ function turnPage(id){
 } window.turnPage = turnPage;
 
 function buildPedido(){
+    if(pageState != 0) getItems();
+
     body = document.body.innerHTML;
     document.body.innerHTML = '<h1 onclick="loadBody()"> click to go back </h1>';
 
-    
+
 } window.buildPedido = buildPedido;
 
 function loadBody(){
