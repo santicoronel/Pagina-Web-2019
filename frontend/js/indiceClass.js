@@ -18,14 +18,14 @@ export class IndicePage{
 
     fetcherPath = 'backend/fetchIndice.php';
     itemSet = new Map;
-    HTMLtemplate = 
+    HTMLTemplate = 
     `<div id="Indice" class="Indice">
         <h2> Indice </h2> 
         <ul id="Tabla"> </ul> 
     </div>`;
     
     constructor(){
-        this.pageContent = this.HTMLtemplate + components.flechaDer;
+        this.pageContent = this.HTMLTemplate + components.flechaDer;
     }
     
     fetchItems(callback){

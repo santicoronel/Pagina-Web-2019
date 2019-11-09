@@ -1,5 +1,6 @@
 import { Ajax } from "./ajax";
 import { textToHTML, components } from "./utils";
+import {PedidoItem} from './pedidoClass';
 
 export class ComboItem {
 
@@ -21,18 +22,19 @@ export class CombosPage {
     
     fetcherPath = 'backend/fetchCombos.php';
     itemSet = new Map;
-    HTMLtemplate = 
+    itemSelected = new Array;
+    HTMLTemplate = 
     `<div id="Combos-y-Ofertas" class="Combos-y-Ofertas">
         <h2> Combos y Ofertas </h2> 
         <ul id="Tabla"></ul> 
     </div>`;
 
     constructor(){
-        this.pageContent = this.HTMLtemplate + components.flechaIzq;
+        this.pageContent = this.HTMLTemplate + components.flechaIzq;
     }
     
     fetchItems(callback){
-        let items  =  Ajax.fetcher(this.fetcherPath, 
+        Ajax.fetcher(this.fetcherPath, 
             res => {
                 let data = res.filter(obj => obj.disponible);
                 
@@ -66,6 +68,26 @@ export class CombosPage {
 
     renderPage(){
         document.getElementById('Carta').innerHTML = this.pageContent;
+        this.itemSelected = new Array;
         if(!this.itemSet.size) this.updateContent();
+    }
+
+    get Pedidos(){
+        let pedidosCount = new Map;
+        let pedidos = new Map;
+        for(id of this.itemSelected){
+            if(pedidosCount.has(id)) pedidosCount.set(id, pedidosCount.get(id) + 1);
+            else pedidosCount.set(id, 1);
+        }
+        pedidosCount.forEach(
+            (val, id) => {
+                let item = this.makePedido(this.itemSet.get(id), val)
+                pedidos.set(id, item);
+        });
+        return pedidos;
+    }
+
+    makePedido(item, cant){
+        return new PedidoItem(item.id, item.name, item.price, cant);
     }
 }
