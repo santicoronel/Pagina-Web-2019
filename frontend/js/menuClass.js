@@ -29,11 +29,11 @@ export class MenuPage {
     itemSet = new Map;
     itemSelected = new Array;
     HTMLTemplate =
-    `<div id="Menu" class="Menu"> 
-        <table id="Tabla"> 
-            <tr> <th colspan="2"> <h2>Menú</h2> </th> </tr> 
-        </table> 
-    </div>`;
+        `<div id="Menu" class="Menu"> 
+            <table id="Tabla"> 
+                <tr> <th colspan="2"> <h2>Menú</h2> </th> </tr> 
+            </table> 
+        </div>`;
     
     constructor(){
         this.pageContent = this.HTMLTemplate + components.flechaIzq + components.flechaDer;

@@ -18,12 +18,20 @@ export class PedidoPage {
 
     itemSet = new Array;
     HTMLTemplate = ``; //TODO
+    HTMLTemplate = `<button class='Boton'> HACER PEDIDO </button>` + `<button class='Boton' onclick="loadBody()"> VOLVER A LA CARTA </button>`
 
+    
+    constructor(){
+        this.pageContent =this.HTMLTemplate;
+    }
+    
     renderItem(item, container){
         container.appendChild(item.HTMLElem);
     }
 
     renderPage(){
+        
+        document.body.innerHTML = this.pageContent;
         let precioTotal = 0;
         let container = document.getElementById('Tabla');
 

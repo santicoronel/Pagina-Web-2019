@@ -26,10 +26,10 @@ export class CombosPage {
     itemSet = new Map;
     itemSelected = new Array;
     HTMLTemplate = 
-    `<div id="Combos-y-Ofertas" class="Combos-y-Ofertas">
-        <h2> Combos y Ofertas </h2> 
-        <ul id="Tabla"></ul> 
-    </div>`;
+        `<div id="Combos-y-Ofertas" class="Combos-y-Ofertas">
+            <h2> Combos y Ofertas </h2> 
+            <ul id="Tabla"></ul> 
+        </div>`;
 
     constructor(){
         this.pageContent = this.HTMLTemplate + components.flechaIzq;

@@ -19,10 +19,10 @@ export class IndicePage{
     fetcherPath = 'backend/fetchIndice.php';
     itemSet = new Map;
     HTMLTemplate = 
-    `<div id="Indice" class="Indice">
-        <h2> Indice </h2> 
-        <ul id="Tabla"> </ul> 
-    </div>`;
+        `<div id="Indice" class="Indice">
+            <h2> Indice </h2> 
+            <ul id="Tabla"> </ul> 
+        </div>`;
     
     constructor(){
         this.pageContent = this.HTMLTemplate + components.flechaDer;
