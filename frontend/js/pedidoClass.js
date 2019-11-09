@@ -1,12 +1,12 @@
 import {textToHTML} from './utils'
 
 export class PedidoItem {    
-    constructor(id, nombre, precio, cantidad){
-        this.id = id;
-        this.price = precio;
-        this.cant = cantidad;
-        this.name = nombre;
-        this.HTMLElem = textToHTML(this.HTMLText);
+    constructor(name, price, cant){
+        this.price = price;
+        this.cant = cant;
+        this.name = name;
+        this.HTMLElem = textToHTML(this.HTMLText());
+        //this.HTMLElem = 'pepe';
     }
     
     HTMLText(){
@@ -26,11 +26,11 @@ export class PedidoPage {
     renderPage(){
         let precioTotal = 0;
         let container = document.getElementById('Tabla');
-        this.itemSet.forEach(
-            val => {
-                this.renderItem(val, container);
-                precioTotal += val.precio;
-            })
+
+        for(item of this.itemSet) {
+            this.renderItem(item, container);
+            precioTotal += item.price;
+        }
         document.getElementById('Precio').innerHTML = precioTotal;
     }
 
