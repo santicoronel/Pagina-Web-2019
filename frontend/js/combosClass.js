@@ -13,7 +13,9 @@ export class ComboItem {
 		this.HTMLElem = textToHTML(this.HTMLText());
     }
 
-	HTMLText(){} //TODO
+	HTMLText(){
+        return ``;
+    } //TODO
     
 }
 
@@ -74,20 +76,20 @@ export class CombosPage {
 
     get Pedidos(){
         let pedidosCount = new Map;
-        let pedidos = new Map;
-        for(id of this.itemSelected){
+        let pedidos = new Array;
+        for(let id of this.itemSelected){
             if(pedidosCount.has(id)) pedidosCount.set(id, pedidosCount.get(id) + 1);
             else pedidosCount.set(id, 1);
         }
         pedidosCount.forEach(
             (val, id) => {
                 let item = this.makePedido(this.itemSet.get(id), val)
-                pedidos.set(id, item);
+                pedidos.push(item);
         });
         return pedidos;
     }
 
     makePedido(item, cant){
-        return new PedidoItem(item.id, item.name, item.price, cant);
+        return new PedidoItem(item.name, item.price, cant);
     }
 }

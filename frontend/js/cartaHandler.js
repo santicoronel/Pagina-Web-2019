@@ -5,23 +5,22 @@ import { PedidoPage } from './pedidoClass'
 
 var body;
 
-var page = [new IndicePage, new MenuPage, new CombosPage];
+var pages = [new IndicePage, new MenuPage, new CombosPage];
 var pedidosPage = new PedidoPage;
 var pageState = 0;
 
 function loadPage(){  
-    page[0].renderPage();
+    pages[0].renderPage();
 } window.loadPage = loadPage;
 
 function selectItem (id) {
     document.getElementById(id).classList.toggle('item_on');
+    pages[pageState].pageContent = document.getElementById('Carta').innerHTML;
 } window.selectItem = selectItem;
 
 function getItems (){
     let elems = document.getElementsByClassName('item_on')
-    for(let elem of elems){
-        page[pageState].itemSelected.push(elem.id);
-    }
+    for(let elem of elems) pages[pageState].itemSelected.push(elem.id);
 }
 
 function turnPage(id){
@@ -36,7 +35,7 @@ function turnPage(id){
             pageState++;
             break;
     }
-    page[pageState].renderPage();
+    pages[pageState].renderPage();
 } window.turnPage = turnPage;
 
 function buildPedido(){
