@@ -4,7 +4,6 @@ import { CombosPage } from './combosClass'
 
 var body;
 
-var pedidos = {menu: new Array, combos: new Array};
 var page = [new IndicePage, new MenuPage, new CombosPage];
 var pageState = 0;
 
@@ -16,14 +15,10 @@ function selectItem (id) {
     document.getElementById(id).classList.toggle('item_on');
 } window.selectItem = selectItem;
 
-function getItems (page){
+function getItems (){
     let elems = document.getElementsByClassName('item_on')
-    let opciones = {
-        1: pedidos.menu,
-        2: pedidos.combos
-    }
     for(let elem of elems){
-        opciones[page].push(elem.id);
+        page[pageState].itemSelected.push(elem.id);
     }
 }
 
@@ -45,6 +40,8 @@ function turnPage(id){
 function buildPedido(){
     body = document.body.innerHTML;
     document.body.innerHTML = '<h1 onclick="loadBody()"> click to go back </h1>';
+
+    
 } window.buildPedido = buildPedido;
 
 function loadBody(){
