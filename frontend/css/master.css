@@ -79,6 +79,8 @@ justify-content: space-between;
 align-items: center;
 }
 #EncabezadoCarta{
+-webkit-column-span: all;
+column-span: all;
 font-size: 32px;
 }
 .Flecha{
@@ -86,7 +88,7 @@ font-size: 32px;
 	position: fixed;
 }
 .Boton {
-	position: fixed;
+	position: sticky;
   display: inline-block;
   padding: 15px 25px;
   font-size: 15px;
