@@ -10,16 +10,30 @@ export class PedidoItem {
     }
     
     HTMLText(){
-        return ``;//TODO
+        return `<tr>
+                    <th><h1> ${this.name} </h1></th>
+                    <th><h1> $${this.price} </h1></th>
+                    <th><h1> Preparando </h1></th>
+                </tr>`;
     }
 }
 
 export class PedidoPage {
 
     itemSet = new Array;
-    HTMLTemplate = ``; //TODO
-    HTMLTemplate = `<button class='Boton'> HACER PEDIDO </button>` + `<button class='Boton' onclick="loadBody()"> VOLVER A LA CARTA </button>`
-
+    HTMLTemplate = 
+        `<center><div id="Chef" class="Chef">
+            <table id="Tabla">
+                <tr>
+                <th><h1>Pedido<h1></th>
+                <th><h1>Precio</h1></th>
+                <th><h1>Estado</h1></th>
+                </tr>
+            </table>
+            <h1 id="Precio"></h1><br>
+            <button class='Boton'> HACER PEDIDO </button>
+            <button class='Boton' onclick="loadBody()"> VOLVER A LA CARTA </button>
+        </center>`;
     
     constructor(){
         this.pageContent =this.HTMLTemplate;
@@ -31,15 +45,16 @@ export class PedidoPage {
 
     renderPage(){
         
+        document.body.style.backgroundImage = 'url("../../images/pedidos.jpg")';
         document.body.innerHTML = this.pageContent;
         let precioTotal = 0;
         let container = document.getElementById('Tabla');
 
         for(let item of this.itemSet) {
             this.renderItem(item, container);
-            precioTotal += item.price;
+            precioTotal += parseInt(item.price);
         }
-        document.getElementById('Precio').innerHTML = precioTotal;
+        document.getElementById('Precio').innerHTML = '$' + precioTotal;
     }
 
 }

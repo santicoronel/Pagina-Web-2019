@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html style="height: 100%">
 <head>
-			<link href="master.css" rel="stylesheet" type="text/css">
-			<title>Restobar King Beer</title>
+	<link rel="icon" type="image/png" href="images/favicon.ico.png">
+	<link href="frontend/css/master.css" rel="stylesheet" type="text/css">
+	<script src="frontend/js/cartaHandler.js" type="module"></script>
+	<title>Restobar King Beer</title>
 </head>
 	<body onload="loadPage()">
 		<div>
 				<hr>
 				<center>
-				<img src="favicon.ico.png" alt="King Beer"
+				<img src="images/favicon.ico.png" alt="King Beer"
 					border="0" style="width:300px;height:300px;">
 				</center>
 				<hr>
 		</div>
-
+		<div id="Carta"></div>
 			<center>
 				<div>
 					<button class="Boton" onclick="buildPedido()">VER MI PEDIDO</button>

@@ -14,8 +14,16 @@ export class ComboItem {
     }
 
 	HTMLText(){
-        return ``;
-    } //TODO
+        return `<tr id="${this.id}">
+                    <td onclick="selectItem(${this.id})">${this.name}</td>
+                    <td>$${this.price}</td> 
+                    <td><div class="dropdown">
+							<button class="dropbtn">Cant.</button>
+							<div class="dropdown-content">
+								<button href="#">1</button>
+								<button href="#">2</button>
+								<button href="#">3</button>`;
+    }
     
 }
 
@@ -26,10 +34,10 @@ export class CombosPage {
     itemSet = new Map;
     itemSelected = new Array;
     HTMLTemplate = 
-        `<div id="Combos-y-Ofertas" class="Combos-y-Ofertas">
+        `<center><div id="Combos-y-Ofertas" class="Combos-y-Ofertas">
             <h2> Combos y Ofertas </h2> 
-            <ul id="Tabla"></ul> 
-        </div>`;
+            <table id="Tabla" class=""></table> 
+        </div></center>`;
 
     constructor(){
         this.pageContent = this.HTMLTemplate + components.flechaIzq;

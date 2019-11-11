@@ -14,9 +14,16 @@ export class MenuItem {
     }
 
 	HTMLText(){ 
-        return `<tr id="${this.id}" onclick="selectItem(${this.id})">
+        return `<tr id="${this.id}">
                     <td> <img src="${this.image_url}"> </td>
-                    <td> ${this.name} </td>
+                    <td onclick="selectItem(${this.id})"> ${this.name} </td>
+                    <td> $${this.price} </td>
+                    <td><div class="dropdown">
+                        <button class="dropbtn">Cant.</button>
+                        <div class="dropdown-content">
+                          <button href="#">1</button>
+                          <button href="#">2</button>
+                          <button href="#">3</button>
                 </tr>`; 
             
  	}
@@ -29,11 +36,11 @@ export class MenuPage {
     itemSet = new Map;
     itemSelected = new Array;
     HTMLTemplate =
-        `<div id="Menu" class="Menu"> 
-            <table id="Tabla"> 
-                <tr> <th colspan="2"> <h2>Menú</h2> </th> </tr> 
+        `<center><div id="Menu" class="Menu"> 
+            <table id="Tabla" class="center"> 
+                <tr> <th colspan="3"> <h2>Menú</h2> </th> </tr> 
             </table> 
-        </div>`;
+        </div></center>`;
     
     constructor(){
         this.pageContent = this.HTMLTemplate + components.flechaIzq + components.flechaDer;

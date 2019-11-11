@@ -1,5 +1,5 @@
 body {
-background-image: url('background.jpg');
+background-image: url('../../images/background.jpg');
 background-repeat: repeat;
 background-size: cover;
 color:  #ff6600 ;
@@ -25,9 +25,10 @@ margin: auto;
 }
 div#Indice h2{
 text-align: center;
+font-size: 80px;
 }
 div#Indice ul{
-font-size: 24px;
+font-size: 50px;
 color: #ff7b00;
 }
 div#Indice ul li{
@@ -69,6 +70,7 @@ margin: auto;
 }
 div#Menu table{
 border: 0px solid black;
+font-size: 24px;;
 }
 div#Menu table h2{
 text-align: center;
@@ -79,7 +81,7 @@ div#Menu table img{
 	width:100px;height:100px;
 }
 div#Chef table{
-	border-spacing: 100px 50px;
+  border-spacing: 100px 50px;
 }
 div#Chef h1{
 	color: #ff0066;
@@ -89,13 +91,28 @@ div#Chef h4{
 	color: black;
 	font-size: 40px;
 }
-.Flecha-izq{
+#contenedor{
+  position: sticky;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+#botones{
+  grid-column: 2/3;
+}
+
+div#Chef button{
+  position: relative;
+  
+}
+
+#Flecha-izq{
   filter: drop-shadow(0px 0px 5px #000);
 	position: fixed;
 	width:150px;height:150px;
 	top:80%;
 }
-.Flecha-der{
+#Flecha-der{
 	filter: drop-shadow(0px 0px 5px #000);
 	position: fixed;
 	width:150px;height:150px;
@@ -166,3 +183,13 @@ div#Chef h4{
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #e65c00;}
+
+.center{
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+#Precio{
+  text-align: center;
+  font-size: 50px;
+}

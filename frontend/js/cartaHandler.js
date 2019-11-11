@@ -26,11 +26,11 @@ function getItems (){
 function turnPage(id){
 
     switch(id){
-        case 'Flecha-izquierda':
+        case 'Flecha-izq':
             getItems();
             pageState--;
             break;
-        case 'Flecha-derecha':
+        case 'Flecha-der':
             if(pageState == 1) getItems();
             pageState++;
             break;
@@ -45,11 +45,10 @@ function buildPedido(){
     body = document.body.innerHTML;
     pedidosPage.renderPage();
 
-    document.body.innerHTML = '<h1 onclick="loadBody()"> click to go back </h1>';
-
 
 } window.buildPedido = buildPedido;
 
 function loadBody(){
     document.body.innerHTML = body;
+    document.body.style.backgroundImage = 'url("../../images/background.jpg")';
 } window.loadBody = loadBody;
