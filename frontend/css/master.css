@@ -1,5 +1,5 @@
 body {
-background-image: url('../../images/background.jpg');
+background-image: url('background.jpg');
 background-repeat: repeat;
 background-size: cover;
 color:  #ff6600 ;
@@ -11,13 +11,6 @@ text-shadow:
 	margin:0px;
 	padding:0px;
 }
-
-div#Flecha-izquierda{
-float:left;
-}
-div#Flecha-derecha{
-float:right;
-}
 div#Indice{
 font-family: Didot, serif;
 padding: 30px;
@@ -28,6 +21,7 @@ display:flex;
 justify-content:center;
 align-items: center;
 flex-direction: column;
+margin: auto;
 }
 div#Indice h2{
 text-align: center;
@@ -49,17 +43,19 @@ display:flex;
 justify-content:center;
 align-items: center;
 flex-direction: column;
+margin: auto;
 }
-div#Combos-y-Ofertas ul{
+div#Combos-y-Ofertas td{
 font-size: 24px;
 color: #ff7b00;
-}
-div#Combos-y-Ofertas ul li{
-list-style: none;
 }
 div#Combos-y-Ofertas h2{
 text-align: center;
 }
+div#Combos-y-Ofertas table img{
+	width:100px;height:100px;
+}
+div#Combos
 div#Menu{
 font-size: 24px;
 color: #ff7b00;
@@ -69,24 +65,42 @@ display:flex;
 justify-content:center;
 align-items: center;
 flex-direction: column;
+margin: auto;
 }
-div#Menu h2{
+div#Menu table{
+border: 0px solid black;
+}
+div#Menu table h2{
+text-align: center;
+font-family: 'Vollkorn', serif;
 font-size: 60px;
 }
-div#Carta{
-margin: auto;
-display:flex;
-justify-content: space-between;
-align-items: center;
+div#Menu table img{
+	width:100px;height:100px;
 }
-#EncabezadoCarta{
--webkit-column-span: all;
-column-span: all;
-font-size: 32px;
+div#Chef table{
+	border-spacing: 100px 50px;
 }
-.Flecha{
+div#Chef h1{
+	color: #ff0066;
+	font-size: 60px;
+}
+div#Chef h4{
+	color: black;
+	font-size: 40px;
+}
+.Flecha-izq{
   filter: drop-shadow(0px 0px 5px #000);
 	position: fixed;
+	width:150px;height:150px;
+	top:80%;
+}
+.Flecha-der{
+	filter: drop-shadow(0px 0px 5px #000);
+	position: fixed;
+	width:150px;height:150px;
+	left:92%;
+	top:80%;
 }
 .Boton {
 	position: sticky;
@@ -110,7 +124,6 @@ font-size: 32px;
   background-color: #2d5;
   color: #fff;
 }
-
 .Boton:active {
   box-shadow: 0 0 1em black inset;
   background-color: #1c4;
@@ -119,5 +132,37 @@ font-size: 32px;
 
 /* item_on debe estar al final para mantener precedencia */
 .item_on {
-  color: black;
+  color: #400080;
+	text-decoration: underline violet;
 }
+.dropbtn {
+  background-color: #ff944d;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content button {
+	width:100%;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content button:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #e65c00;}

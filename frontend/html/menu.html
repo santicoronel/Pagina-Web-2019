@@ -1,10 +1,46 @@
-
-    <div id="Menu" class="Menu">
-
-      		<div id="Carta">
-            <table>
-                <tr> <th colspan="3"> <h2>Menú</h2> </th> </tr>
-                <tr id="EncabezadoCarta"> <th> <h2>Hamburguesas</h2> </th> </tr>
-            </table>
-          </div>
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+      <link href="master.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn|Yeon+Sung&display=swap" rel="stylesheet">
+      <title>Restobar King Beer</title>
+</head>
+  <body onload="loadPage()">
+    <div>
+        <hr>
+        <center>
+        <img src="favicon.ico.png" alt="King Beer"
+          border="0" style="width:300px;height:300px;">
+        </center>
+        <hr>
     </div>
+        <div id="Menu" class="Menu">
+                <table>
+                    <tr> <th colspan="3"> <h2>Menú</h2> </th> </tr>
+                    <tr> <th colspan="3"> <h2 id="Hamburguesas">Hamburguesas</h2> </th> </tr>
+                    <tr> <td>Verga</td>
+                      <td>$$$</td>
+                      <td><img src="petenaranja.jpg"></td>
+                      <td><div class="dropdown">
+                        <button class="dropbtn">Cant.</button>
+                        <div class="dropdown-content">
+                          <button href="#">1</button>
+                          <button href="#">2</button>
+                          <button href="#">3</button>
+                        </div>
+                      </div></td>
+                    </tr>
+                </table>
+              </div>
+    <center>
+        <div>
+          <button class="Boton" onclick="buildPedido()">VER MI PEDIDO</button>
+        </div>
+      </center>
+    <div>
+      <img src="left-arrow.svg" class="Flecha-izq">
+    </div>
+    <div>
+      <img src="right-arrow.svg" class="Flecha-der">
+    <div>
+  </body>
