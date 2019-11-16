@@ -1,6 +1,6 @@
-import { Ajax } from "./ajax";
-import { textToHTML, components } from "./utils";
-import { PedidoItem } from './pedidoClass';
+import { Ajax } from "./ajax.js";
+import { textToHTML, components } from "./utils.js";
+import { PedidoItem } from './pedidoClass.js';
 
 export class MenuItem {
 

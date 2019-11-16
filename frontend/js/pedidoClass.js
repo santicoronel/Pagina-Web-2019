@@ -1,4 +1,4 @@
-import {textToHTML} from './utils'
+import {textToHTML} from './utils.js'
 
 export class PedidoItem {    
     constructor(name, price, cant){
@@ -45,7 +45,7 @@ export class PedidoPage {
 
     renderPage(){
         
-        document.body.style.backgroundImage = 'url("../../images/pedidos.jpg")';
+        document.body.style.backgroundImage = 'url("images/pedidos.jpg")';
         document.body.innerHTML = this.pageContent;
         let precioTotal = 0;
         let container = document.getElementById('Tabla');

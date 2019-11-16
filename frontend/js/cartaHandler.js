@@ -1,7 +1,7 @@
-import { IndicePage } from './indiceClass'
-import { MenuPage } from './menuClass'
-import { CombosPage } from './combosClass'
-import { PedidoPage } from './pedidoClass'
+import { IndicePage } from './indiceClass.js'
+import { MenuPage } from './menuClass.js'
+import { CombosPage } from './combosClass.js'
+import { PedidoPage } from './pedidoClass.js'
 
 var body;
 
@@ -12,6 +12,8 @@ var pageState = 0;
 function loadPage(){  
     pages[0].renderPage();
 } window.loadPage = loadPage;
+
+document.body.addEventListener('load', _ => {pages[0].renderPage()});
 
 function selectItem (id) {
     document.getElementById(id).classList.toggle('item_on');
@@ -41,7 +43,6 @@ function turnPage(id){
 function buildPedido(){
     if(pageState != 0) getItems();
     pedidosPage.itemSet = pages[1].Pedidos.concat(pages[2].Pedidos);
-    console.log(pedidosPage.itemSet);
     body = document.body.innerHTML;
     pedidosPage.renderPage();
 
@@ -50,5 +51,5 @@ function buildPedido(){
 
 function loadBody(){
     document.body.innerHTML = body;
-    document.body.style.backgroundImage = 'url("../../images/background.jpg")';
+    document.body.style.backgroundImage = 'url("images/background.jpg")';
 } window.loadBody = loadBody;

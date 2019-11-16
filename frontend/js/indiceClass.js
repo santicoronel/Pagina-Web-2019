@@ -1,5 +1,5 @@
-import { Ajax } from "./ajax";
-import { textToHTML, components } from "./utils";
+import { Ajax } from "./ajax.js";
+import { textToHTML, components } from "./utils.js";
 
 export class IndiceItem {
 

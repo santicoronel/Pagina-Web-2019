@@ -7,9 +7,6 @@ export class Ajax {
             
             if(xmlreq.readyState == 4 && xmlreq.status == 200){
                 let data = JSON.parse(xmlreq.responseText);
-                
-                console.log('data fetched from db: ', data);
-                
                 callback(data);
             }
         }

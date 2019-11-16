@@ -1,5 +1,5 @@
 <?php
-include './sql_variables.php';
+include './sqlVariables.php';
 
 $conn = new mysqli($servername, $username, $password, $db);
 
