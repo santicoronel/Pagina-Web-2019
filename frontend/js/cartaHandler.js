@@ -45,11 +45,10 @@ function buildPedido(){
     pedidosPage.itemSet = pages[1].Pedidos.concat(pages[2].Pedidos);
     body = document.body.innerHTML;
     pedidosPage.renderPage();
-
-
 } window.buildPedido = buildPedido;
 
 function loadBody(){
     document.body.innerHTML = body;
+    pages[pageState].renderPage();
     document.body.style.backgroundImage = 'url("images/background.jpg")';
 } window.loadBody = loadBody;
