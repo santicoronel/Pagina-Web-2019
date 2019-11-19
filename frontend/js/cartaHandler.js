@@ -9,11 +9,7 @@ var pages = [new IndicePage, new MenuPage, new CombosPage];
 var pedidosPage = new PedidoPage;
 var pageState = 0;
 
-function loadPage(){  
-    pages[0].renderPage();
-} window.loadPage = loadPage;
-
-document.body.addEventListener('load', _ => {pages[0].renderPage()});
+window.addEventListener('load', _ => pages[0].renderPage());
 
 function selectItem (id) {
     document.getElementById(id).classList.toggle('item_on');
