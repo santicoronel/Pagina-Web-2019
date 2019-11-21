@@ -8,9 +8,9 @@ text-shadow:
 }
 .Container {
   line-height: 400%;
-  width:50%;
+  width:70%;
   height: 100px;
-  margin: 100px auto;
+  margin: 30px auto;
   border: 3px solid #3366ff;
   text-align:center;
 }
