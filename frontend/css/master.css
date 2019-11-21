@@ -102,7 +102,7 @@ div#Chef h4{
 
 div#Chef button{
   position: relative;
-  
+
 }
 
 #Flecha-izq{
@@ -184,11 +184,31 @@ div#Chef button{
 .dropdown:hover .dropbtn {background-color: #e65c00;}
 
 .center{
-  margin-left:auto; 
+  margin-left:auto;
   margin-right:auto;
 }
 
 #Precio{
   text-align: center;
   font-size: 50px;
+}
+.Ingreso{
+	font-family: 'Acme', sans-serif;
+	font-size: 60px;
+	color: #33cc33;
+	text-align: center;
+}
+.Ingreso input{
+	font-family: 'Anton', sans-serif;
+	background:#ffffe6;
+	text-align: center;
+	width:5%;
+	font-size:40px;
+}
+#Ing{
+	background:black;
+	color:white;
+	height: 60px;
+	width:8%;
+	font-size: 20px;
 }
