@@ -4,13 +4,13 @@ import { CombosPage } from './combosClass.js'
 import { PedidoPage } from './pedidoClass.js'
 
 var body;
-var mesa;
-var pages = [new IndicePage, new MenuPage, new CombosPage];
+var table;
 var pedidosPage = new PedidoPage;
+var pages = [new IndicePage, new MenuPage, new CombosPage];
 var pageState = 0;
 
 function getTable(){
-    mesa = document.getElementsByName('nroMesa')[0].value;
+    table = document.getElementsByName('nroMesa')[0].value;
     document.body.innerHTML += '<center><div><button class="Boton" onclick="buildPedido()">VER MI PEDIDO</button></div></center>'
     pages[0].renderPage();
 } window.getTable = getTable;
@@ -44,6 +44,7 @@ function buildPedido(){
     if(pageState != 0) getItems();
     pedidosPage.itemSet = pages[1].Pedidos.concat(pages[2].Pedidos);
     body = document.body.innerHTML;
+    pedidosPage.table = table;
     pedidosPage.renderPage();
 } window.buildPedido = buildPedido;
 

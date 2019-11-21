@@ -19,7 +19,8 @@ export class PedidoItem {
 }
 
 export class PedidoPage {
-
+    table;
+    writePath = 'backend/pushPedido.php';
     itemSet = new Array;
     HTMLTemplate = 
         `<center><div id="Chef" class="Chef">
@@ -65,7 +66,10 @@ export class PedidoPage {
     }
 
     pushItems(){
-        Ajax.fetch()
+        for(let item of this.itemSet){
+            item.table = this.table;
+            Ajax.write(this.writePath, _ => {}, item);
+        }
     }
 
 }
