@@ -1,6 +1,6 @@
 <?php
 
-include './sqlVariables.php';
+include '../backend/sqlVariables.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
@@ -14,6 +14,6 @@ if ($conn->connect_error) {
 header("Content-Type: application/json; charset=UTF-8");
 $id = json_decode($_POST["x"], false);
 
-$sql = "DELETE FROM Pedidos SET WHERE id_plato = '".$id."'";
+$sql = "DELETE FROM Pedidos WHERE id = '".$id."'";
 $conn->query($sql);
 ?>

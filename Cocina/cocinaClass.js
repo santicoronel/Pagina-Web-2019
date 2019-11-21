@@ -10,26 +10,25 @@ export class CocinaItem {
     }
 
     HTMLText(){
-        return `<div id='${this.table + this.id}'>
-                    <h1> ${this.name} </h1>
-                    <br>
-                    <h1> ${this.table} </h1>
-                    <br><br>
+        return `<div class="Container" id='${this.id}'>
+                    <p>${this.name}</p>
+                    <p>Mesa: #${this.table}</p>
                 </div>`; //TODO
     }
 }
 
 export class CocinaPage {
     fetcherPath = 'fetchPedidos.php';
-    writePath = 'updatePedido.php'
+    writePath = 'deletePedido.php'
     
     constructor(){
-        setInterval(this.renderPage(), 1000);
+        this.renderPage();
+        setInterval(this.renderPage.bind(this), 10000);
     }
     
     
     renderItem(item){
-        document.body.appendChild(item.HTMLElem);
+        document.body.appendChild(item.HTMLElem).addEventListener("dblclick", _ => this.removeItem(item.id));
     }
     
     removeItem(id){
@@ -42,20 +41,19 @@ export class CocinaPage {
         this.fetchItems(
             items => {
                 for(let item of items){
-                    this.renderItem(item);
-                    document.addEventListener("dblclick", _ => this.removeItem(item.id));
+                    this.renderItem(item);;
                 }
             }
         )
     }
     fetchItems(callback){
-        Ajax.fetcher(this.fetcherPath, 
+        Ajax.fetch(this.fetcherPath, 
             res =>{
-                let data = res.filter(obj => !obj.listo);
+                let data = res; 
 
                 let items = new Array();
                 for(let d of data){
-                    let item = new CocinaItem(d.id_plato, d.plato, d.mesa);
+                    let item = new CocinaItem(d.id, d.plato, d.mesa);
                     items.push(item);
                 }
                 callback(items);

@@ -14,6 +14,6 @@ if ($conn->connect_error) {
 header("Content-Type: application/json; charset=UTF-8");
 $obj = json_decode($_POST["x"], false);
 
-$sql = "INSERT INTO Pedidos (id_plato, plato, mesa, listo) VALUES ('".$obj->id."', '".$obj->name."', '".$obj->table."', NULL) ";
+$sql = "INSERT INTO Pedidos (id, plato, mesa) VALUES (NULL, '".$obj->name."', '".$obj->table."') ";
 $conn->query($sql);
 ?>

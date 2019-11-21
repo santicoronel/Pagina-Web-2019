@@ -8,10 +8,9 @@ if ($conn->connect_error) {
 }
 
 $sql = "CREATE TABLE IF NOT EXISTS Pedidos (
-    id_plato INT(6) UNSIGNED,
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     plato VARCHAR(100) NOT NULL,
-    mesa INT(4) UNSIGNED,
-    listo BOOLEAN DEFAULT false )";
+    mesa INT(4) UNSIGNED )";
 
 $conn->query($sql);
 
