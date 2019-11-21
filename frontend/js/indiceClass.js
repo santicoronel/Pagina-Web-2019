@@ -29,7 +29,7 @@ export class IndicePage{
     }
     
     fetchItems(callback){
-        Ajax.fetcher(this.fetcherPath, 
+        Ajax.fetch(this.fetcherPath, 
             res => {
                 let data = res;
 

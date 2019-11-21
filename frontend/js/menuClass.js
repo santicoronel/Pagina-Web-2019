@@ -18,12 +18,6 @@ export class MenuItem {
                     <td> <img src="${this.image_url}"> </td>
                     <td onclick="selectItem(${this.id})"> ${this.name} </td>
                     <td> $${this.price} </td>
-                    <td><div class="dropdown">
-                        <button class="dropbtn">Cant.</button>
-                        <div class="dropdown-content">
-                          <button href="#">1</button>
-                          <button href="#">2</button>
-                          <button href="#">3</button>
                 </tr>`; 
             
  	}
@@ -47,7 +41,7 @@ export class MenuPage {
     }
     
     fetchItems(callback){
-        Ajax.fetcher(this.fetcherPath, 
+        Ajax.fetch(this.fetcherPath, 
             res => {
                 
                 let data = res.filter(obj => obj.disponible);

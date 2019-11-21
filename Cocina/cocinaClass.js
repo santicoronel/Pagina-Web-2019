@@ -5,15 +5,15 @@ export class CocinaItem {
     constructor(id, name, table){
         this.id = id;
         this.name = name;
-        this.mesa = table;
+        this.table = table;
         this.HTMLElem = textToHTML(this.HTMLText());
     }
 
     HTMLText(){
-        return `<div id='${this.id}'>
+        return `<div id='${this.table + this.id}'>
                     <h1> ${this.name} </h1>
                     <br>
-                    <h1> ${this.mesa} </h1>
+                    <h1> ${this.table} </h1>
                     <br><br>
                 </div>`; //TODO
     }
@@ -21,7 +21,7 @@ export class CocinaItem {
 
 export class CocinaPage {
     fetcherPath = 'fetchPedidos.php';
-    
+    writePath = 'updatePedido.php'
     
     constructor(){
         setInterval(this.renderPage(), 1000);
@@ -34,9 +34,11 @@ export class CocinaPage {
     
     removeItem(id){
         document.getElementById(id).remove();
+        Ajax.write(this.writePath, _ => {}, id);
     }
 
     renderPage(){
+        document.body.innerHTML = '';
         this.fetchItems(
             items => {
                 for(let item of items){
@@ -53,7 +55,7 @@ export class CocinaPage {
 
                 let items = new Array();
                 for(let d of data){
-                    let item = new CocinaItem(d.id, d.plato, d.mesa);
+                    let item = new CocinaItem(d.id_plato, d.plato, d.mesa);
                     items.push(item);
                 }
                 callback(items);

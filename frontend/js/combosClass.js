@@ -17,12 +17,7 @@ export class ComboItem {
         return `<tr id="${this.id}">
                     <td onclick="selectItem(${this.id})">${this.name}</td>
                     <td>$${this.price}</td> 
-                    <td><div class="dropdown">
-							<button class="dropbtn">Cant.</button>
-							<div class="dropdown-content">
-								<button href="#">1</button>
-								<button href="#">2</button>
-								<button href="#">3</button>`;
+                    <td><div class="dropdown">`;
     }
     
 }
@@ -44,7 +39,7 @@ export class CombosPage {
     }
     
     fetchItems(callback){
-        Ajax.fetcher(this.fetcherPath, 
+        Ajax.fetch(this.fetcherPath, 
             res => {
                 let data = res.filter(obj => obj.disponible);
                 

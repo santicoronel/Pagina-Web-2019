@@ -1,4 +1,5 @@
 import {textToHTML} from './utils.js'
+import { Ajax } from './ajax.js';
 
 export class PedidoItem {    
     constructor(name, price, cant){
@@ -13,7 +14,6 @@ export class PedidoItem {
         return `<tr>
                     <th><h1> ${this.name} </h1></th>
                     <th><h1> $${this.price} </h1></th>
-                    <th><h1> Preparando </h1></th>
                 </tr>`;
     }
 }
@@ -27,12 +27,11 @@ export class PedidoPage {
                 <tr>
                 <th><h1>Pedido<h1></th>
                 <th><h1>Precio</h1></th>
-                <th><h1>Estado</h1></th>
                 </tr>
             </table>
             <h1 id="Precio"></h1><br>
-            <button class='Boton'> HACER PEDIDO </button>
-            <button class='Boton' onclick="loadBody()"> VOLVER A LA CARTA </button>
+            <button class='Boton' id="makePedido"> HACER PEDIDO </button>
+            <button class='Boton' onclick="loadBody()" id="back"> VOLVER A LA CARTA </button>
         </center>`;
     
     constructor(){
@@ -47,6 +46,7 @@ export class PedidoPage {
         
         document.body.style.backgroundImage = 'url("images/pedidos.jpg")';
         document.body.innerHTML = this.pageContent;
+        document.getElementById('makePedido').addEventListener('click', _ => this.makePedido());
         let precioTotal = 0;
         let container = document.getElementById('Tabla');
 
@@ -55,6 +55,17 @@ export class PedidoPage {
             precioTotal += parseInt(item.price);
         }
         document.getElementById('Precio').innerHTML = '$' + precioTotal;
+    }
+
+    makePedido(){
+        document.getElementById('back').remove();
+        document.getElementById('makePedido').remove();
+        alert('Pedido Enviado!');
+        this.pushItems();
+    }
+
+    pushItems(){
+        Ajax.fetch()
     }
 
 }
