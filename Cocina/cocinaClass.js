@@ -1,5 +1,5 @@
-import { Ajax } from '../frontend/js/ajax';
-import { textToHTML } from '../frontend/js/utils';
+import { Ajax } from '../frontend/js/ajax.js';
+import { textToHTML } from '../frontend/js/utils.js';
 
 export class CocinaItem {
     constructor(id, name, table){
@@ -23,7 +23,7 @@ export class CocinaPage {
     
     constructor(){
         this.renderPage();
-        setInterval(this.renderPage.bind(this), 10000);
+        setInterval(this.renderPage.bind(this), 20000);
     }
     
     
