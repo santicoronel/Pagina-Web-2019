@@ -9,11 +9,20 @@ var pedidosPage = new PedidoPage;
 var pages = [new IndicePage, new MenuPage, new CombosPage];
 var pageState = 0;
 
+document.addEventListener('keydown', listener);
+
+function listener(event){
+    console.log('pepe');
+    if(event.keyCode == 13) getTable();
+}
+
 function getTable(){
     table = document.getElementsByName('nroMesa')[0].value;
+    if(table == 'cocina' || table == 'Cocina' || table == 'COCINA') location.href = './Cocina';
     document.body.innerHTML += '<center><div><button class="Boton" onclick="buildPedido()">VER MI PEDIDO</button></div></center>'
     pages[0].renderPage();
-} window.getTable = getTable;
+    document.removeEventListener('keydown', listener);
+}
 
 function selectItem (id) {
     document.getElementById(id).classList.toggle('item_on');

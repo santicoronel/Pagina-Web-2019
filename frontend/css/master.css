@@ -151,37 +151,6 @@ div#Chef button{
   color: #400080;
 	text-decoration: underline violet;
 }
-.dropbtn {
-  background-color: #ff944d;
-  color: black;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-.dropdown-content button {
-	width:100%;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-content button:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #e65c00;}
 
 .center{
   margin-left:auto;
@@ -195,20 +164,20 @@ div#Chef button{
 .Ingreso{
 	font-family: 'Acme', sans-serif;
 	font-size: 60px;
-	color: #33cc33;
-	text-align: center;
+	color: #ffc400;
+  text-align: center;
 }
 .Ingreso input{
-	font-family: 'Anton', sans-serif;
-	background:#ffffe6;
+  font-family: 'Anton', sans-serif;
+	background: transparent;
 	text-align: center;
-	width:5%;
-	font-size:40px;
+  width: 100%;
+  font-size: 60px;
+  /*color: transparent;
+  text-shadow:0 0 0 black;*/
+  border: none;
 }
-#Ing{
-	background:black;
-	color:white;
-	height: 60px;
-	width:8%;
-	font-size: 20px;
+
+.Ingreso input:focus {
+  outline: none;
 }
