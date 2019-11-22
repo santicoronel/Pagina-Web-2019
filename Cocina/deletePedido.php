@@ -14,6 +14,6 @@ if ($conn->connect_error) {
 header("Content-Type: application/json; charset=UTF-8");
 $id = json_decode($_POST["x"], false);
 
-$sql = "DELETE FROM Pedidos WHERE id = '".$id."'";
+$sql = "UPDATE Pedidos SET pendiente = false WHERE id = '".$id."'";
 $conn->query($sql);
 ?>

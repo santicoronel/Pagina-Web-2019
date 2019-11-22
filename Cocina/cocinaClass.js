@@ -49,7 +49,7 @@ export class CocinaPage {
     fetchItems(callback){
         Ajax.fetch(this.fetcherPath, 
             res =>{
-                let data = res; 
+                let data = res.filter(obj => obj.pendiente); 
 
                 let items = new Array();
                 for(let d of data){
