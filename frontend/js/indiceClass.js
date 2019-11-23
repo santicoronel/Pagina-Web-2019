@@ -11,7 +11,7 @@ export class IndiceItem {
 	
 	HTMLText(){
 		return `<li id="${this.id}"> ${this.name} </li>`;
-	}
+	} // when navigation to proper section is working indice items shall be selectable
 }
 
 export class IndicePage{

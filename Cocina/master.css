@@ -5,22 +5,25 @@ body {
     text-shadow:
     0 0 1px black,
     0 0 1px black;
-    }
-    .Container {
-      line-height: 400%;
-      width:70%;
-      height: 100px;
-      margin: 30px auto;
-      border: 3px solid rgb(22, 144, 63);
-      display: grid;
-      text-align: center;
-      grid-template-columns: 50% 50%;
-      box-shadow: 5px 5px rgb(11, 77, 33);
-    }
-    .Container p{
-      margin-top:18px;
-      font-family: 'Roboto Slab', serif;
-      display: inline-block;
-      font-size: 35px;
-    }
-    
+}
+.Container {
+  line-height: 400%;
+  width:70%;
+  height: 100px;
+  margin: 30px auto;
+  border: 3px solid rgb(22, 144, 63);
+  display: grid;
+  text-align: center;
+  grid-template-columns: 50% 50%;
+  box-shadow: 5px 5px rgb(11, 77, 33);
+}
+.Container p{
+  margin-top:18px;
+  font-family: 'Roboto Slab', serif;
+  display: inline-block;
+  font-size: 35px;
+}
+
+.selectable:hover {
+  cursor: pointer;
+}

@@ -14,9 +14,9 @@ export class MenuItem {
     }
 
 	HTMLText(){ 
-        return `<tr id="${this.id}">
+        return `<tr id="${this.id}" class="selectable" onclick="selectItem(${this.id})">
                     <td> <img src="${this.image_url}"> </td>
-                    <td onclick="selectItem(${this.id})"> ${this.name} </td>
+                    <td> ${this.name} </td>
                     <td> $${this.price} </td>
                 </tr>`; 
             

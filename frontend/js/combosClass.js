@@ -14,8 +14,8 @@ export class ComboItem {
     }
 
 	HTMLText(){
-        return `<tr id="${this.id}">
-                    <td onclick="selectItem(${this.id})">${this.name}</td>
+        return `<tr id="${this.id}" class="selectable" onclick="selectItem(${this.id})">
+                    <td>${this.name}</td>
                     <td>$${this.price}</td> 
                     <td><div class="dropdown">`;
     }

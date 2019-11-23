@@ -5,11 +5,11 @@ export const textToHTML = text => {
 }
 export var components = {
     flechaIzq: 
-    `<div id="izq" class="Flecha" onclick="turnPage(this.id)">
+    `<div id="izq" class="Flecha selectable" onclick="turnPage(this.id)">
         <img src="images/left-arrow.svg" width="80" heigth="80" alt="<-">
     </div>`,
     flechaDer:
-    `<div id="der" class="Flecha" onclick="turnPage(this.id)">
+    `<div id="der" class="Flecha selectable" onclick="turnPage(this.id)">
         <img src="images/right-arrow.svg" width="80" heigth="80" alt="->">
     </div>`,
 };

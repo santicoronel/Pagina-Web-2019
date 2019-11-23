@@ -8,8 +8,19 @@ text-shadow:
 }
 *{
 	margin:0px;
-	padding:0px;
+  padding:0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
+.selectable:hover{
+  cursor: pointer;
+}
+
 div#Indice{
 font-family: Didot, serif;
 padding: 30px;
@@ -84,11 +95,14 @@ div#Chef table{
 }
 div#Chef h1{
 	color: #ff0066;
-	font-size: 60px;
+  font-size: 60px;
 }
 div#Chef h4{
 	color: black;
 	font-size: 40px;
+}
+div#Chef #cant {
+  display: inline;
 }
 #contenedor{
   position: sticky;
@@ -106,7 +120,7 @@ div#Chef button{
 }
 
 .Flecha {
-	position: fixed;
+  position: fixed;
   top: 80%;
 }
 
@@ -137,6 +151,7 @@ div#Chef button{
   --background-color: #38a;
   background-color: #2d5;
   color: #fff;
+  cursor: pointer;
 }
 .Boton:active {
   box-shadow: 0 0 1em black inset;
