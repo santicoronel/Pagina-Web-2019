@@ -161,8 +161,8 @@ div#Chef button{
 
 /* item_on debe estar al final para mantener precedencia */
 .item_on {
-  color: #400080;
-	text-decoration: underline violet;
+  color: #ffc400;
+  font-weight: bold;
 }
 
 .center{
