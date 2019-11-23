@@ -103,15 +103,16 @@ div#Chef h2 {
   font-size: 50px;
   color: #ff0066;
 }
-div#Chef #cant {
+div#Chef .cant {
   display: flex;
 }
-div#Chef #cant h2 {
+div#Chef .cant h2 {
   width: 30%;
 }
 
-#plus,#minus {
+.plus,.minus {
   font-weight: bold !important;
+  cursor: pointer;
 }
 #contenedor{
   position: sticky;

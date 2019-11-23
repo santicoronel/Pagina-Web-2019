@@ -6,6 +6,8 @@ import { PedidoPage } from './pedidoClass.js'
 var body;
 var table;
 var pedidosPage = new PedidoPage;
+window.add = pedidosPage.add;
+window.subs = pedidosPage.subs;
 var pages = [new IndicePage, new MenuPage, new CombosPage];
 var pageState = 0;
 

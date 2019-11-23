@@ -7,17 +7,16 @@ export class PedidoItem {
         this.cant = cant;
         this.name = name;
         this.HTMLElem = textToHTML(this.HTMLText());
-        //this.HTMLElem = 'pepe';
     }
     
     HTMLText(){
-        return `<tr id="${name}">
+        return `<tr>
                     <th><h2> ${this.name} </h1></th>
                     <th><h2> $${this.price} </h1></th>
-                    <th id='cant'> 
-                        <h2 id="plus" onclick=add(${this.name})> + </h1> 
-                        <h2> 0 </h1> 
-                        <h2 id='minus'> - </h1> 
+                    <th class='cant'> 
+                        <h2 class='plus' onclick="add('${this.name}')"> + </h1> 
+                        <h2 id="${this.name}"> 1 </h1> 
+                        <h2 class='minus' onclick="subs('${this.name}')"> - </h1> 
                     </th>
                 </tr>`;
     }
@@ -76,6 +75,20 @@ export class PedidoPage {
             item.table = this.table;
             Ajax.write(this.writePath, _ => {}, item);
         }
+    }
+
+    add(id){
+        let elem = document.getElementById(id);
+        let val = parseInt(elem.innerText) + 1;
+        elem.innerText = val;
+        return val;
+    }
+    subs(id){
+        let elem = document.getElementById(id);
+        let val = parseInt(elem.innerText) - 1;
+        if(val < 1) return;
+        elem.innerText = val;
+        return val;
     }
 
 }
