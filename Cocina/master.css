@@ -1,3 +1,13 @@
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
 body {
     background-image: url('../images/fondo1ggg.png');
     background-size: cover;
@@ -7,6 +17,7 @@ body {
     0 0 1px black;
 }
 .Container {
+  background: #A3CB53;
   line-height: 400%;
   width:70%;
   height: 100px;
