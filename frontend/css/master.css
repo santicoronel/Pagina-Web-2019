@@ -105,18 +105,16 @@ div#Chef button{
 
 }
 
-#Flecha-izq{
-  filter: drop-shadow(0px 0px 5px #000);
+.Flecha {
 	position: fixed;
-	width:150px;height:150px;
-	top:80%;
+  top: 80%;
 }
-#Flecha-der{
-	filter: drop-shadow(0px 0px 5px #000);
-	position: fixed;
-	width:150px;height:150px;
-	left:92%;
-	top:80%;
+
+#der {
+  right: 5px;
+}
+#izq {
+  left: 5px;
 }
 .Boton {
 	position: sticky;

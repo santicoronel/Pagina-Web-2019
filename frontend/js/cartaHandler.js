@@ -37,11 +37,11 @@ function getItems (){
 function turnPage(id){
 
     switch(id){
-        case 'Flecha-izq':
+        case 'izq':
             getItems();
             pageState--;
             break;
-        case 'Flecha-der':
+        case 'der':
             if(pageState == 1) getItems();
             pageState++;
             break;
