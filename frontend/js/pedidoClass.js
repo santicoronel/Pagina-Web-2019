@@ -73,7 +73,12 @@ export class PedidoPage {
     pushItems(){
         for(let item of this.itemSet){
             item.table = this.table;
-            Ajax.write(this.writePath, _ => {}, item);
+            let cant = document.getElementById(item.name).innerText;
+            cant = parseInt(cant);
+            for(let i = 0; i < cant; i++){
+                console.log('pepe');
+                Ajax.write(this.writePath, _ => {}, item);
+            }
         }
     }
 
