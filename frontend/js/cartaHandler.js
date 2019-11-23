@@ -15,10 +15,10 @@ function listenEnter(event){
 
 function listenIzq(event){
     if(event.keyCode == 37) turnPage('izq');
-}
+} document.addEventListener('keydown', listenIzq);
 function listenDer(event){
     if(event.keyCode == 39) turnPage('der');
-}
+} document.addEventListener('keydown', listenDer);
 
 
 function getTable(){
@@ -41,15 +41,14 @@ function getItems (){
 }
 
 function turnPage(id){
-    document.removeEventListener('keydown', listenDer);
-    document.removeEventListener('keydown', listenIzq);
-
     switch(id){
         case 'izq':
+            if(pageState == 0) return;
             getItems();
             pageState--;
             break;
         case 'der':
+            if(pageState == 2) return;
             if(pageState == 1) getItems();
             pageState++;
             break;
