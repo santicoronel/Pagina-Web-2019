@@ -88,7 +88,8 @@ font-family: 'Vollkorn', serif;
 font-size: 60px;
 }
 div#Menu table img{
-	width:100px;height:100px;
+  width:100px;
+  height:100px;
 }
 div#Chef table{
   border-spacing: 100px 50px;
@@ -97,12 +98,20 @@ div#Chef h1{
 	color: #ff0066;
   font-size: 60px;
 }
-div#Chef h4{
-	color: black;
-	font-size: 40px;
+div#Chef h2 {
+  font-weight: lighter;
+  font-size: 50px;
+  color: #ff0066;
 }
 div#Chef #cant {
-  display: inline;
+  display: flex;
+}
+div#Chef #cant h2 {
+  width: 30%;
+}
+
+#plus,#minus {
+  font-weight: bold !important;
 }
 #contenedor{
   position: sticky;
@@ -116,7 +125,6 @@ div#Chef #cant {
 
 div#Chef button{
   position: relative;
-
 }
 
 .Flecha {

@@ -11,9 +11,14 @@ export class PedidoItem {
     }
     
     HTMLText(){
-        return `<tr>
-                    <th><h1> ${this.name} </h1></th>
-                    <th><h1> $${this.price} </h1></th>
+        return `<tr id="${name}">
+                    <th><h2> ${this.name} </h1></th>
+                    <th><h2> $${this.price} </h1></th>
+                    <th id='cant'> 
+                        <h2 id="plus" onclick=add(${this.name})> + </h1> 
+                        <h2> 0 </h1> 
+                        <h2 id='minus'> - </h1> 
+                    </th>
                 </tr>`;
     }
 }
@@ -28,6 +33,7 @@ export class PedidoPage {
                 <tr>
                 <th><h1>Pedido<h1></th>
                 <th><h1>Precio</h1></th>
+                <th><h1>Cantidad</h1></th>
                 </tr>
             </table>
             <h1 id="Precio"></h1><br>
