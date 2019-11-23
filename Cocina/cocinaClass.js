@@ -10,9 +10,9 @@ export class CocinaItem {
     }
 
     HTMLText(){
-        return `<div class="Container" id='${this.id}'>
+        return `<div class="Container selectable" id='${this.id}'>
                     <p>${this.name}</p>
-                    <p>Mesa: #${this.table}</p>
+                    <p>Mesa #${this.table}</p>
                 </div>`; //TODO
     }
 }
