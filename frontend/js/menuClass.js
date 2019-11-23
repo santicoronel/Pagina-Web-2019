@@ -44,7 +44,7 @@ export class MenuPage {
         Ajax.fetch(this.fetcherPath, 
             res => {
                 
-                let data = res.filter(obj => obj.disponible);
+                let data = res.filter(obj => obj.disponible != 0);
                 
                 let items = new Array;
                 for(let d of data){
