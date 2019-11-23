@@ -9,25 +9,26 @@ var pedidosPage = new PedidoPage;
 var pages = [new IndicePage, new MenuPage, new CombosPage];
 var pageState = 0;
 
-function listenEnter(event){
+function listenEnterInput(event){
     if(event.keyCode == 13) getTable();
-} document.addEventListener('keydown', listenEnter);
-
+} document.addEventListener('keydown', listenEnterInput);
 function listenIzq(event){
     if(event.keyCode == 37) turnPage('izq');
-} document.addEventListener('keydown', listenIzq);
+}
 function listenDer(event){
     if(event.keyCode == 39) turnPage('der');
-} document.addEventListener('keydown', listenDer);
-
+}
+function listenEnterCarta(event){
+    if(event.keyCode == 13) buildPedido();
+}
 
 function getTable(){
     table = document.getElementsByName('nroMesa')[0].value;
     if(table == 'cocina' || table == 'Cocina' || table == 'COCINA') location.href = './Cocina';
     document.body.innerHTML += '<center><div><button class="Boton" onclick="buildPedido()">VER MI PEDIDO</button></div></center>'
     pages[0].renderPage();
-    document.addEventListener('keydown', listenDer);
-    document.removeEventListener('keydown', listenEnter);
+    document.removeEventListener('keydown', listenEnterInput);
+    addListeners();
 }
 
 function selectItem (id) {
@@ -53,26 +54,19 @@ function turnPage(id){
             pageState++;
             break;
     }
-    addArrowListener();
     pages[pageState].renderPage();
 } window.turnPage = turnPage;
 
-function addArrowListener(){
-    switch(pageState){
-        case 0 :
-            document.addEventListener('keydown', listenDer);
-            break;
-        case 1 :
-            document.addEventListener('keydown', listenIzq);
-            document.addEventListener('keydown', listenDer);
-        case 2 :
-            document.addEventListener('keydown', listenIzq);
-    }
+function addListeners(){
+    document.addEventListener('keydown', listenIzq);
+    document.addEventListener('keydown', listenDer);
+    document.addEventListener('keydown', listenEnterCarta);
 }
 
 function buildPedido(){
     document.removeEventListener('keydown', listenDer);
     document.removeEventListener('keydown', listenIzq);
+    document.removeEventListener('keydown', listenEnterCarta);
 
     if(pageState != 0) getItems();
     pedidosPage.itemSet = pages[1].Pedidos.concat(pages[2].Pedidos);
@@ -82,7 +76,7 @@ function buildPedido(){
 } window.buildPedido = buildPedido;
 
 function loadBody(){
-    addArrowListener();
+    addListeners();
     document.body.innerHTML = body;
     pages[pageState].renderPage();
     document.body.style.backgroundImage = 'url("images/background.jpg")';
