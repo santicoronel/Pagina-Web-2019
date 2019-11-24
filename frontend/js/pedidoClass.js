@@ -45,6 +45,9 @@ export class PedidoPage {
     }
     
     renderItem(item, container){
+        item.HTMLElem.children[2].children[0].addEventListener('click', _ => this.add(item.id));
+        item.HTMLElem.children[2].children[1].id = item.id;
+        item.HTMLElem.children[2].children[2].addEventListener('click', _ => this.subs(item.id));
         container.appendChild(item.HTMLElem);
     }
 
@@ -56,27 +59,31 @@ export class PedidoPage {
         let precioTotal = 0;
         let container = document.getElementById('Tabla');
 
-        for(let item of this.itemSet) {
+        this.itemSet.forEach((item, i) => {
+            item.id = i;
             this.renderItem(item, container);
             precioTotal += parseInt(item.price);
-        }
+        });
         document.getElementById('Precio').innerHTML = '$' + precioTotal;
     }
 
     makePedido(){
         document.getElementById('back').remove();
         document.getElementById('makePedido').remove();
-        alert('Pedido Enviado!');
+
+        this.add = _ => {return};
+        this.subs = _ => {return};
+
         this.pushItems();
+        alert('Pedido Enviado!');
     }
 
     pushItems(){
         for(let item of this.itemSet){
             item.table = this.table;
-            let cant = document.getElementById(item.name).innerText;
+            let cant = document.getElementById(item.id).innerText;
             cant = parseInt(cant);
             for(let i = 0; i < cant; i++){
-                console.log('pepe');
                 Ajax.write(this.writePath, _ => {}, item);
             }
         }
@@ -86,6 +93,12 @@ export class PedidoPage {
         let elem = document.getElementById(id);
         let val = parseInt(elem.innerText) + 1;
         elem.innerText = val;
+
+        let precio = document.getElementById('Precio');
+        let p = precio.innerText.slice(1);
+        p = parseInt(p) + parseInt(this.itemSet[id].price);
+        precio.innerText = '$' + p;
+
         return val;
     }
     subs(id){
@@ -93,6 +106,11 @@ export class PedidoPage {
         let val = parseInt(elem.innerText) - 1;
         if(val < 1) return;
         elem.innerText = val;
+
+        let precio = document.getElementById('Precio');
+        let p = precio.innerText.slice(1);
+        p = parseInt(p) - parseInt(this.itemSet[id].price);
+        precio.innerText = '$' + p;
         return val;
     }
 
