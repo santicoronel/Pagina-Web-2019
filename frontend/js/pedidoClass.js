@@ -14,9 +14,9 @@ export class PedidoItem {
                     <th><h2> ${this.name} </h1></th>
                     <th><h2> $${this.price} </h1></th>
                     <th class='cant'> 
-                        <h2 class='plus' onclick="add('${this.name}')"> + </h1> 
-                        <h2 id="${this.name}"> 1 </h1> 
-                        <h2 class='minus' onclick="subs('${this.name}')"> - </h1> 
+                        <h2 class='plus'> + </h1> 
+                        <h2> 1 </h1> 
+                        <h2 class='minus'> - </h1> 
                     </th>
                 </tr>`;
     }
